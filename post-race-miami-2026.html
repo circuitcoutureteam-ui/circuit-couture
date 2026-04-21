@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Post-Race Dispatch — Miami 2026 — Circuit Couture</title>
+  <meta name="description" content="The Post-Race Dispatch drops every Monday after the flag. Miami races May 3, 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #0B0B0A; --cream: #F2EDE3; --gold: #B8975A; --red: #C8293B; --muted: #7A7570; --border: #1E1D1A; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--ink); color: var(--cream); font-family: 'Jost', 'Helvetica Neue', sans-serif; font-weight: 300; font-size: 15px; line-height: 1.7; }
+    .serif { font-family: 'Playfair Display', Georgia, serif; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+    nav { border-bottom: 0.5px solid var(--border); position: sticky; top: 0; background: var(--ink); z-index: 100; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; }
+    .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream); }
+    .logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 20px; list-style: none; align-items: center; }
+    .nav-links a { font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; font-weight: 400; }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-links .nl-btn { color: var(--gold); border: 0.5px solid var(--gold); padding: 5px 14px; border-radius: 2px; transition: background 0.2s, color 0.2s; }
+    .nav-links .nl-btn:hover { background: var(--gold); color: var(--ink); }
+
+    /* COMING SOON HERO */
+    .cs-hero {
+      min-height: 70vh;
+      display: flex; align-items: center;
+      border-bottom: 0.5px solid var(--border);
+    }
+    .cs-inner { max-width: 680px; }
+    .eyebrow {
+      font-size: 10px; letter-spacing: 0.24em;
+      text-transform: uppercase; color: var(--gold);
+      display: flex; align-items: center;
+      gap: 12px; margin-bottom: 28px;
+    }
+    .eyebrow::before {
+      content: ''; display: inline-block;
+      width: 28px; height: 0.5px; background: var(--gold);
+    }
+    .cs-inner h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 56px; line-height: 1.08;
+      font-weight: 700; margin-bottom: 20px;
+    }
+    .cs-inner h1 em { font-style: italic; color: var(--gold); }
+    .cs-inner p {
+      font-size: 17px; color: var(--muted);
+      line-height: 1.85; max-width: 520px;
+      margin-bottom: 40px;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+    }
+
+    /* COUNTDOWN STRIP */
+    .countdown-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 0.5px solid var(--border);
+      margin-bottom: 40px;
+    }
+    .countdown-cell {
+      padding: 28px 20px; text-align: center;
+      border-right: 0.5px solid var(--border);
+    }
+    .countdown-cell:last-child { border-right: none; }
+    .countdown-num {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 48px; font-style: italic;
+      color: var(--gold); display: block;
+      line-height: 1; margin-bottom: 8px;
+    }
+    .countdown-label {
+      font-size: 9px; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--muted);
+    }
+
+    /* WHAT TO EXPECT */
+    .expect-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 0.5px solid var(--border);
+      margin-bottom: 40px;
+    }
+    .expect-cell {
+      padding: 28px 24px;
+      border-right: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+    }
+    .expect-cell:nth-child(2n) { border-right: none; }
+    .expect-cell:nth-last-child(-n+2) { border-bottom: none; }
+    .expect-label {
+      font-size: 9px; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--gold);
+      display: block; margin-bottom: 10px;
+    }
+    .expect-cell h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 16px; font-weight: 400;
+      margin-bottom: 6px;
+    }
+    .expect-cell p {
+      font-size: 12px; color: var(--muted); line-height: 1.7;
+    }
+
+    /* SUBSCRIBE */
+    .sub-section {
+      padding: 48px 0;
+      border-top: 0.5px solid var(--border);
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 48px;
+    }
+    .sub-left h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px; font-weight: 400; margin-bottom: 8px;
+    }
+    .sub-left p {
+      font-size: 13px; color: var(--muted); line-height: 1.75;
+    }
+    .sub-form-block { display: flex; flex-direction: column; gap: 10px; min-width: 280px; }
+    .sub-input { padding: 12px 16px; background: rgba(255,255,255,0.05); border: 0.5px solid #7A7570; color: var(--cream); font-family: 'Jost', sans-serif; font-size: 13px; border-radius: 2px; outline: none; transition: border-color 0.2s; width: 100%; }
+    .sub-input::placeholder { color: var(--muted); }
+    .sub-input:focus { border-color: var(--gold); }
+    .sub-btn { display: block; text-align: center; padding: 12px 16px; background: var(--gold); color: var(--ink); font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; border-radius: 2px; cursor: pointer; transition: background 0.2s; font-weight: 500; text-decoration: none; }
+    .sub-btn:hover { background: #caa96a; }
+    .sub-note { font-size: 10px; color: var(--muted); text-align: center; }
+
+    /* BACK LINK */
+    .back-link {
+      display: inline-flex; align-items: center;
+      gap: 8px; font-size: 10px; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 48px; transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--gold); }
+    .back-link::before { content: '←'; font-size: 13px; }
+
+    footer { padding: 32px 0; display: flex; justify-content: space-between; align-items: center; border-top: 0.5px solid var(--border); }
+    footer .logo { font-size: 16px; }
+    footer p { font-size: 11px; color: var(--muted); letter-spacing: 0.08em; }
+    footer nav { display: flex; gap: 24px; border: none; position: static; background: transparent; }
+    footer nav a { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; }
+    footer nav a:hover { color: var(--cream); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <div class="nav-inner">
+        <div class="logo"><a href="./index.html">Circuit <span>Couture</span></a></div>
+        <ul class="nav-links">
+          <li><a href="./article-miami-2026.html">Cultural Grid</a></li>
+          <li><a href="./post-race-miami-2026.html">Post-Race</a></li>
+          <li><a href="./espresso-miami-2026.html">Espresso Dispatch</a></li>
+          <li><a href="./archive.html">Archive</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+          <li><a href="#" class="nl-btn" onclick="openNewsletter(); return false;">Newsletter</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="cs-hero">
+      <div class="cs-inner">
+        <a href="./index.html" class="back-link">Back to home</a>
+        <div class="eyebrow">Post-Race Dispatch — Round 4</div>
+        <h1>The Race Hasn't<br><em>Happened Yet</em></h1>
+        <p>The Post-Race Dispatch drops every Monday after the chequered flag. Miami races on Sunday May 3rd — the first edition lands Monday May 4th at 8pm.</p>
+
+        <div class="countdown-strip">
+          <div class="countdown-cell">
+            <span class="countdown-num" id="days">—</span>
+            <span class="countdown-label">Days</span>
+          </div>
+          <div class="countdown-cell">
+            <span class="countdown-num" id="hours">—</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+          <div class="countdown-cell">
+            <span class="countdown-num" id="minutes">—</span>
+            <span class="countdown-label">Minutes</span>
+          </div>
+          <div class="countdown-cell">
+            <span class="countdown-num" id="seconds">—</span>
+            <span class="countdown-label">Seconds</span>
+          </div>
+        </div>
+
+        <div class="expect-grid">
+          <div class="expect-cell">
+            <span class="expect-label">Race Summary</span>
+            <h3>What Actually Happened</h3>
+            <p>Not just the result — the moment that defined the weekend. The decision that changed everything. The story beneath the standings.</p>
+          </div>
+          <div class="expect-cell">
+            <span class="expect-label">Fashion Icon</span>
+            <h3>Who Wore the Weekend</h3>
+            <p>The paddock always delivers. One person, one look, one reason it mattered beyond the clothes.</p>
+          </div>
+          <div class="expect-cell">
+            <span class="expect-label">Quote of the Week</span>
+            <h3>The Line That Stayed</h3>
+            <p>One sentence from the weekend — from the podium, the pit wall, the press conference — that said something true.</p>
+          </div>
+          <div class="expect-cell">
+            <span class="expect-label">Colour Palette</span>
+            <h3>The Atmosphere in Colour</h3>
+            <p>Every race has a chromatic memory. Miami's will be drawn from the light, the heat, and whatever the weekend decides to be.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="sub-section">
+      <div class="sub-left">
+        <h2 class="serif">Get it Monday morning</h2>
+        <p>Subscribe and the Post-Race Dispatch<br>lands in your inbox before you've finished breakfast.</p>
+      </div>
+      <div class="sub-form-block">
+        <input type="email" class="sub-input" placeholder="your@email.com" />
+        <a href="https://circuitc.substack.com" target="_blank" class="sub-btn" onclick="handleSub(this);return false;">Subscribe free →</a>
+        <p class="sub-note">Free · Mondays after a race · No spam</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <footer>
+      <div class="logo serif">Circuit <span style="color:var(--gold);">Couture</span></div>
+      <p>Fashion × Art × Formula 1</p>
+      <nav>
+        <a href="#">Instagram</a>
+        <a href="#">Pinterest</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
+    </footer>
+  </div>
+
+  <div id="nl-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:999;align-items:center;justify-content:center;">
+    <div style="background:#111110;border:0.5px solid #1E1D1A;padding:40px;max-width:420px;width:90%;position:relative;border-radius:2px;">
+      <button onclick="closeNewsletter()" style="position:absolute;top:16px;right:20px;background:none;border:none;color:#7A7570;font-size:20px;cursor:pointer;line-height:1;">×</button>
+      <div style="font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:#B8975A;margin-bottom:16px;">Every Sunday</div>
+      <div style="font-family:'Playfair Display',Georgia,serif;font-size:28px;font-weight:400;margin-bottom:8px;">The Espresso<br>Dispatch</div>
+      <p style="font-size:13px;color:#7A7570;line-height:1.8;margin-bottom:24px;">Coffee, playlists, women in motorsport, Pinterest picks. Free, always.</p>
+      <div class="sub-form-block">
+        <input type="email" class="sub-input" placeholder="your@email.com" />
+        <a href="https://circuitc.substack.com" target="_blank" class="sub-btn" onclick="handleSub(this);return false;">Subscribe →</a>
+        <p class="sub-note">Free · Sundays only · No spam</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Countdown to Miami race — May 3, 2026 20:00 local time
+    const raceDate = new Date('2026-05-04T20:00:00-04:00');
+    function updateCountdown() {
+      const now = new Date();
+      const diff = raceDate - now;
+      if (diff <= 0) {
+        document.getElementById('days').textContent = '0';
+        document.getElementById('hours').textContent = '0';
+        document.getElementById('minutes').textContent = '0';
+        document.getElementById('seconds').textContent = '0';
+        return;
+      }
+      document.getElementById('days').textContent = Math.floor(diff / 86400000);
+      document.getElementById('hours').textContent = Math.floor((diff % 86400000) / 3600000);
+      document.getElementById('minutes').textContent = Math.floor((diff % 3600000) / 60000);
+      document.getElementById('seconds').textContent = Math.floor((diff % 60000) / 1000);
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    function handleSub(link) {
+      const input = link.previousElementSibling;
+      const email = input.value.trim();
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        input.style.borderColor = '#C8293B';
+        input.placeholder = 'Please enter a valid email';
+        setTimeout(() => { input.style.borderColor = '#7A7570'; input.placeholder = 'your@email.com'; }, 2000);
+        return;
+      }
+      window.open('https://circuitc.substack.com?email=' + encodeURIComponent(email), '_blank');
+    }
+    function openNewsletter() { document.getElementById('nl-overlay').style.display='flex'; document.body.style.overflow='hidden'; }
+    function closeNewsletter() { document.getElementById('nl-overlay').style.display='none'; document.body.style.overflow=''; }
+    document.getElementById('nl-overlay').addEventListener('click', function(e) { if(e.target===this) closeNewsletter(); });
+    document.addEventListener('keydown', function(e) { if(e.key==='Escape') closeNewsletter(); });
+  </script>
+</body>
+</html>

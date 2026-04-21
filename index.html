@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Circuit Couture — Fashion, Art & Formula 1</title>
+  <meta name="description" content="Where fashion, art history and Formula 1 collide. Long reads before every race, post-race dispatches, and a Sunday newsletter.">
+  <meta property="og:title" content="Circuit Couture — Fashion, Art & Formula 1">
+  <meta property="og:description" content="Where fashion, art history and Formula 1 collide.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:    #0B0B0A;
+      --cream:  #F2EDE3;
+      --gold:   #B8975A;
+      --red:    #C8293B;
+      --muted:  #7A7570;
+      --border: #1E1D1A;
+      --card:   #111110;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--ink);
+      color: var(--cream);
+      font-family: 'Jost', 'Helvetica Neue', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .serif { font-family: 'Playfair Display', Georgia, serif; }
+    a { color: inherit; text-decoration: none; }
+
+    .container { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+
+    /* NAV */
+    nav {
+      border-bottom: 0.5px solid var(--border);
+      position: sticky; top: 0;
+      background: var(--ink);
+      z-index: 100;
+    }
+    .nav-inner {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+    }
+    .logo {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 20px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--cream);
+    }
+    .logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 20px; list-style: none; align-items: center; }
+    .nav-links .nl-btn { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); border: 0.5px solid var(--gold); padding: 5px 14px; border-radius: 2px; transition: background 0.2s, color 0.2s; }
+    .nav-links .nl-btn:hover { background: var(--gold); color: var(--ink); }
+    .nav-links a {
+      font-size: 11px; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--muted);
+      transition: color 0.2s; font-weight: 400;
+    }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-right { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+
+    /* TICKER */
+    .ticker { background: var(--red); padding: 8px 0; overflow: hidden; white-space: nowrap; }
+    .ticker-track {
+      display: inline-flex; gap: 48px;
+      animation: ticker 28s linear infinite;
+    }
+    .ticker-track span { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #fff; font-weight: 400; }
+    .ticker-track .sep { color: rgba(255,255,255,0.4); }
+    @keyframes ticker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* HERO */
+    .hero { padding: 72px 0 56px; border-bottom: 0.5px solid var(--border); }
+    .eyebrow {
+      font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--gold); display: flex; align-items: center;
+      gap: 12px; margin-bottom: 22px;
+    }
+    .eyebrow::before {
+      content: ''; display: inline-block;
+      width: 28px; height: 0.5px; background: var(--gold);
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 64px; line-height: 1.05;
+      font-weight: 700; max-width: 720px; margin-bottom: 12px;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold); }
+    .hero-sub {
+      font-size: 15px; color: var(--muted); max-width: 520px;
+      line-height: 1.85; margin-bottom: 32px; font-weight: 300;
+    }
+    .hero-meta {
+      display: flex; align-items: center; gap: 28px;
+      font-size: 10px; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .badge {
+      background: var(--red); color: #fff;
+      padding: 5px 14px; font-size: 10px;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      border-radius: 2px; font-weight: 400;
+    }
+    .badge.gold {
+      background: transparent;
+      border: 0.5px solid var(--gold); color: var(--gold);
+    }
+
+    /* SECTION LABEL */
+    .section-label {
+      font-size: 10px; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--muted);
+      padding: 32px 0 22px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .section-label::after {
+      content: ''; flex: 1;
+      height: 0.5px; background: var(--border);
+    }
+
+    /* THREE COLUMN GRID */
+    .three-grid {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      border-top: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+    }
+    .grid-card {
+      padding: 32px 28px;
+      border-right: 0.5px solid var(--border);
+      transition: background 0.25s; cursor: pointer;
+    }
+    .grid-card:last-child { border-right: none; }
+    .grid-card:hover { background: rgba(184, 151, 90, 0.05); }
+    .card-cat {
+      font-size: 9px; letter-spacing: 0.24em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 16px; font-weight: 400;
+    }
+    .card-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px; line-height: 1.35;
+      margin-bottom: 12px; font-weight: 400;
+    }
+    .card-body {
+      font-size: 12px; color: var(--muted);
+      line-height: 1.75; margin-bottom: 20px;
+    }
+    .card-link {
+      font-size: 10px; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--gold);
+      display: inline-flex; align-items: center;
+      gap: 8px; transition: gap 0.2s;
+    }
+    .card-link:hover { gap: 14px; }
+    .card-link::after { content: '→'; font-size: 13px; }
+
+    /* POST-RACE DISPATCH */
+    .postrace { padding: 48px 0; border-bottom: 0.5px solid var(--border); }
+    .section-header {
+      display: flex; align-items: baseline;
+      justify-content: space-between; margin-bottom: 32px;
+    }
+    .section-header h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px; font-style: italic; font-weight: 400;
+    }
+    .section-header span {
+      font-size: 10px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .postrace-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      border: 0.5px solid var(--border);
+    }
+    .pr-cell { padding: 28px 24px; border-right: 0.5px solid var(--border); }
+    .pr-cell:last-child { border-right: none; }
+    .pr-cell label {
+      font-size: 9px; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--muted);
+      display: block; margin-bottom: 12px; font-weight: 400;
+    }
+    .pr-cell h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 20px; line-height: 1.35;
+      margin-bottom: 10px; font-weight: 400;
+    }
+    .pr-cell p { font-size: 12px; color: var(--muted); line-height: 1.75; }
+    .pr-cell .value {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 16px; font-style: italic; line-height: 1.4;
+    }
+    .color-dots { display: flex; gap: 8px; margin-top: 10px; }
+    .dot { width: 24px; height: 24px; border-radius: 50%; }
+    .song-line { font-size: 11px; color: var(--muted); margin-top: 6px; font-style: italic; }
+
+    /* ESPRESSO DISPATCH */
+    .espresso {
+      padding: 56px 0; border-bottom: 0.5px solid var(--border);
+      background: rgba(184, 151, 90, 0.04);
+    }
+    .espresso-inner {
+      display: flex; align-items: center;
+      gap: 64px; justify-content: space-between;
+    }
+    .espresso-left h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 40px; line-height: 1.15;
+      margin-bottom: 12px; font-weight: 400;
+    }
+    .espresso-left p {
+      font-size: 13px; color: var(--muted);
+      max-width: 380px; line-height: 1.85; margin-bottom: 20px;
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      font-size: 10px; letter-spacing: 0.1em;
+      padding: 5px 14px; border: 0.5px solid var(--border);
+      color: var(--muted); border-radius: 2px; font-weight: 400;
+    }
+    .subscribe-card {
+      flex-shrink: 0; background: var(--cream);
+      color: var(--ink); padding: 28px 32px;
+      border-radius: 3px; width: 280px;
+    }
+    .subscribe-card label {
+      font-size: 10px; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--muted);
+      display: block; margin-bottom: 14px; font-weight: 400;
+    }
+    .subscribe-card input {
+      width: 100%; padding: 10px 14px;
+      background: transparent; border: 0.5px solid rgba(11,11,10,0.25);
+      font-size: 13px; color: var(--ink);
+      border-radius: 2px; margin-bottom: 10px;
+      font-family: 'Jost', sans-serif; outline: none;
+    }
+    .subscribe-card input::placeholder { color: rgba(11,11,10,0.35); }
+    .subscribe-card input:focus { border-color: var(--ink); }
+    .subscribe-card button {
+      width: 100%; padding: 11px;
+      background: var(--ink); color: var(--cream);
+      border: none; font-size: 10px;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      cursor: pointer; border-radius: 2px;
+      font-family: 'Jost', sans-serif; font-weight: 400;
+      transition: background 0.2s;
+    }
+    .subscribe-card button:hover { background: #2a2a28; }
+    .subscribe-card .note {
+      font-size: 10px; color: var(--muted);
+      text-align: center; margin-top: 10px;
+    }
+
+    /* STATS STRIP */
+    .about-strip {
+      padding: 56px 0; border-bottom: 0.5px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr 2px 1fr 2px 1fr;
+      align-items: center;
+    }
+    .about-divider { background: var(--border); height: 60px; width: 0.5px; }
+    .about-col { padding: 0 40px; text-align: center; }
+    .about-col:first-child { padding-left: 0; }
+    .about-col:last-child { padding-right: 0; }
+    .about-num {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 38px; font-style: italic;
+      color: var(--gold); display: block; margin-bottom: 6px;
+    }
+    .about-col p {
+      font-size: 11px; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted);
+    }
+
+    /* FOOTER */
+    footer { padding: 32px 0; display: flex; justify-content: space-between; align-items: center; }
+    footer .logo { font-size: 16px; }
+    footer p { font-size: 11px; color: var(--muted); letter-spacing: 0.08em; }
+    footer nav {
+      display: flex; gap: 24px; border: none;
+      position: static; background: transparent;
+    }
+    footer nav a {
+      font-size: 10px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--muted); transition: color 0.2s;
+    }
+    footer nav a:hover { color: var(--cream); }
+    /* SUBSCRIBE FORM */
+    .sub-form-block { display: flex; flex-direction: column; gap: 10px; }
+    .sub-input { padding: 12px 16px; background: rgba(255,255,255,0.05); border: 0.5px solid #7A7570; color: var(--cream); font-family: 'Jost', sans-serif; font-size: 13px; border-radius: 2px; outline: none; transition: border-color 0.2s, background 0.2s; width: 100%; }
+    .sub-input::placeholder { color: var(--muted); }
+    .sub-input:focus { border-color: var(--gold); }
+    .sub-btn { display: block; text-align: center; padding: 12px 16px; background: var(--gold); color: var(--ink); font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; border-radius: 2px; cursor: pointer; transition: background 0.2s; font-weight: 500; text-decoration: none; }
+    .sub-btn:hover { background: #caa96a; }
+    .sub-note { font-size: 10px; color: var(--muted); text-align: center; letter-spacing: 0.06em; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <div class="nav-inner">
+        <div class="logo">Circuit <span>Couture</span></div>
+        <ul class="nav-links">
+          <li><a href="article-miami-2026.html">Cultural Grid</a></li>
+          <li><a href="post-race-miami-2026.html">Post-Race</a></li>
+          <li><a href="espresso-miami-2026.html">Espresso Dispatch</a></li>
+          <li><a href="archive.html">Archive</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#" class="nl-btn" onclick="openNewsletter(); return false;">Newsletter</a></li>
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
+
+  <div class="ticker">
+    <div class="ticker-track">
+      <span>Miami GP — May 3</span>
+      <span class="sep">◆</span>
+      <span>Cultural Grid Preview — Live Wednesday</span>
+      <span class="sep">◆</span>
+      <span>Fashion Icon: To be announced</span>
+      <span class="sep">◆</span>
+      <span>The Post-Race Dispatch — Live Monday</span>
+      <span class="sep">◆</span>
+      <span>Miami GP — May 4</span>
+      <span class="sep">◆</span>
+      <span>Cultural Grid Preview — Live Wednesday</span>
+      <span class="sep">◆</span>
+      <span>Fashion Icon: To be announced</span>
+      <span class="sep">◆</span>
+      <span>The Espresso Dispatch — Sunday Edition</span>
+      <span class="sep">◆</span>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">The Cultural Grid Preview — Round 4</div>
+      <h1>Miami, <em>Where Art Deco<br>Meets the Asphalt</em></h1>
+      <p class="hero-sub">
+        Before the engines roar at Hard Rock Stadium, we trace Miami's roots — from its Cuban-influenced art scene to the designers redefining American luxury.
+      </p>
+      <div class="hero-meta">
+        <span class="badge">Wednesday Edition</span>
+        <span class="badge gold">Miami Grand Prix 2025</span>
+        <span>14 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="section-label">In this issue</div>
+  </div>
+
+  <div class="container">
+    <div class="three-grid">
+
+      <div class="grid-card">
+        <div class="card-cat">Art & Fashion</div>
+        <div class="card-title">The Wynwood Walls and What They Whisper About Power</div>
+        <p class="card-body">From Miami's street art district to designers who reclaim the narrative — Jacquemus's obsession with heat, light, and the body.</p>
+        <a class="card-link" href="article-miami-2026.html">Read the piece</a>
+      </div>
+
+      <div class="grid-card">
+        <div class="card-cat">The Circuit</div>
+        <div class="card-title">Hard Rock: An Urban Track That Rewards the Bold</div>
+        <p class="card-body">Turn 11. The long back straight. Why tyre strategy separates champions from pretenders on this unforgiving layout.</p>
+        <a class="card-link" href="article-miami-2026.html">Read the piece</a>
+      </div>
+
+      <div class="grid-card">
+        <div class="card-cat">City & History</div>
+        <div class="card-title">Little Havana and the Other Miami Nobody Drives Through</div>
+        <p class="card-body">The city beneath the gloss — its Caribbean roots, the waves of immigration that shaped its art, its language, its entire visual identity.</p>
+        <a class="card-link" href="article-miami-2026.html">Read the piece</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container">
+  <div class="postrace">
+    <div class="section-header">
+      <h2>Post-Race Dispatch</h2>
+      <span>First edition — Monday May 4th</span>
+    </div>
+
+    <div class="postrace-grid">
+
+      <div class="pr-cell">
+        <label>First edition coming Monday</label>
+        <h3>The Post-Race Dispatch Launches After Miami</h3>
+        <p>Every Monday after a race — the summary, the fashion icon of the weekend, the quote that stayed with us, the song, and the colour palette. The first edition drops after the chequered flag in Miami.</p>
+      </div>
+
+      <div class="pr-cell">
+        <label>Fashion Icon</label>
+        <div class="value">To be revealed</div>
+        <p style="margin-top:8px;">After race weekend — the paddock always delivers.</p>
+      </div>
+
+      <div class="pr-cell">
+        <label>Quote of the Week</label>
+        <div class="value" style="font-size:14px;line-height:1.6;">"Speed is the shape freedom takes."</div>
+      </div>
+
+      <div class="pr-cell">
+        <label>Colour Palette</label>
+        <div class="color-dots">
+          <div class="dot" style="background:#E8B89A;"></div>
+          <div class="dot" style="background:#48B5C4;"></div>
+          <div class="dot" style="background:#F2D4A8;"></div>
+          <div class="dot" style="background:#C85A3C;"></div>
+        </div>
+        <p style="margin-top:10px;font-size:11px;">Miami Deco</p>
+        <p class="song-line">Song: TBA after the race</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+  <div class="espresso">
+    <div class="container">
+      <div class="espresso-inner">
+
+        <div class="espresso-left">
+          <div class="eyebrow">Every Sunday</div>
+          <h2 class="serif">The Espresso<br>Dispatch</h2>
+          <p>Coffee recipes, playlists, women in motorsport who inspire us, Pinterest accounts to follow, and the quote that carries the week.</p>
+          <div class="tags">
+            <span class="tag">Coffee Recipe</span>
+            <span class="tag">Spotify Playlist</span>
+            <span class="tag">Women in Motorsport</span>
+            <span class="tag">Pinterest Picks</span>
+            <span class="tag">Inspiring Quote</span>
+            <span class="tag">Coffee Shop of the Week</span>
+          </div>
+        </div>
+
+        <div class="subscribe-card" style="padding: 0; background: transparent; width: auto;">
+          <div class="sub-form-block">
+  <input type="email" class="sub-input" placeholder="your@email.com" />
+  <a href="https://circuitc.substack.com" target="_blank" class="sub-btn" onclick="handleSub(this); return false;">Subscribe →</a>
+  <p class="sub-note">Free · Sundays only · No spam</p>
+</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="about-strip">
+      <div class="about-col">
+        <span class="about-num">23</span>
+        <p>Grand Prix per season</p>
+      </div>
+      <div class="about-divider"></div>
+      <div class="about-col">
+        <span class="about-num">3</span>
+        <p>Content formats</p>
+      </div>
+      <div class="about-divider"></div>
+      <div class="about-col">
+        <span class="about-num">1</span>
+        <p>Sunday newsletter</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <footer>
+      <div class="logo serif">Circuit <span style="color: var(--gold);">Couture</span></div>
+      <p>Fashion × Art × Formula 1</p>
+      <nav>
+        <a href="#">Instagram</a>
+        <a href="#">Pinterest</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </footer>
+  </div>
+
+  <!-- NEWSLETTER POPUP -->
+  <div id="nl-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:999; align-items:center; justify-content:center;">
+    <div style="background:#111110; border:0.5px solid #1E1D1A; padding:40px; max-width:420px; width:90%; position:relative; border-radius:2px;">
+      <button onclick="closeNewsletter()" style="position:absolute; top:16px; right:20px; background:none; border:none; color:#7A7570; font-size:20px; cursor:pointer; font-family:'Jost',sans-serif; line-height:1;">×</button>
+      <div style="font-size:10px; letter-spacing:0.24em; text-transform:uppercase; color:#B8975A; margin-bottom:16px;">Every Sunday</div>
+      <div style="font-family:'Playfair Display',Georgia,serif; font-size:28px; font-weight:400; margin-bottom:8px;">The Espresso<br>Dispatch</div>
+      <p style="font-size:13px; color:#7A7570; line-height:1.8; margin-bottom:24px;">Coffee, playlists, women in motorsport, Pinterest picks, and the quote that carries the week. Free, always.</p>
+      <div class="sub-form-block">
+  <input type="email" class="sub-input" placeholder="your@email.com" />
+  <a href="https://circuitc.substack.com" target="_blank" class="sub-btn" onclick="handleSub(this); return false;">Subscribe →</a>
+  <p class="sub-note">Free · Sundays only · No spam</p>
+</div>
+      <div style="text-align:center; margin-top:14px;">
+        <a href="https://circuitc.substack.com" target="_blank" style="font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:#7A7570; display:inline-flex; align-items:center; gap:6px;">Open on Substack <span style="font-size:12px;">→</span></a>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    function handleSub(link) {
+      const input = link.previousElementSibling;
+      const email = input.value.trim();
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        input.style.borderColor = '#C8293B';
+        input.placeholder = 'Please enter a valid email';
+        setTimeout(() => { input.style.borderColor = ''; input.placeholder = 'your@email.com'; }, 2000);
+        return;
+      }
+      window.open('https://circuitc.substack.com?email=' + encodeURIComponent(email), '_blank');
+    }
+    function openNewsletter() {
+      const overlay = document.getElementById('nl-overlay');
+      overlay.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeNewsletter() {
+      document.getElementById('nl-overlay').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    document.getElementById('nl-overlay').addEventListener('click', function(e) {
+      if (e.target === this) closeNewsletter();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeNewsletter();
+    });
+  </script>
+
+</body>
+</html>

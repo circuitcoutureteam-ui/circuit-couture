@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Archive — Circuit Couture</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #0B0B0A; --cream: #F2EDE3; --gold: #B8975A; --red: #C8293B; --muted: #7A7570; --border: #1E1D1A; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--ink); color: var(--cream); font-family: 'Jost', 'Helvetica Neue', sans-serif; font-weight: 300; font-size: 15px; line-height: 1.7; }
+    .serif { font-family: 'Playfair Display', Georgia, serif; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+    nav { border-bottom: 0.5px solid var(--border); position: sticky; top: 0; background: var(--ink); z-index: 100; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; }
+    .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream); }
+    .logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 20px; list-style: none; align-items: center; }
+    .nav-links a { font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; font-weight: 400; }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-links .nl-btn { color: var(--gold); border: 0.5px solid var(--gold); padding: 5px 14px; border-radius: 2px; transition: background 0.2s, color 0.2s; }
+    .nav-links .nl-btn:hover { background: var(--gold); color: var(--ink); }
+    .nav-links a.active { color: var(--cream); }
+    .archive-header { padding: 64px 0 48px; border-bottom: 0.5px solid var(--border); }
+    .eyebrow { font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .eyebrow::before { content: ''; display: inline-block; width: 28px; height: 0.5px; background: var(--gold); }
+    .archive-header h1 { font-family: 'Playfair Display', Georgia, serif; font-size: 52px; line-height: 1.08; font-weight: 700; margin-bottom: 12px; }
+    .archive-header p { font-size: 15px; color: var(--muted); max-width: 480px; line-height: 1.8; }
+    .filter-tabs { display: flex; border-bottom: 0.5px solid var(--border); }
+    .filter-tab { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); padding: 18px 28px; cursor: pointer; border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s; font-weight: 400; background: none; border-top: none; border-left: none; border-right: none; font-family: 'Jost', sans-serif; }
+    .filter-tab:hover { color: var(--cream); }
+    .filter-tab.active { color: var(--cream); border-bottom-color: var(--gold); }
+    .archive-section { padding: 40px 0; border-bottom: 0.5px solid var(--border); }
+    .archive-section:last-child { border-bottom: none; }
+    .section-label { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); padding: 0 0 24px; display: flex; align-items: center; gap: 14px; }
+    .section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--border); }
+    .article-row { display: grid; grid-template-columns: 80px 1fr auto; gap: 32px; align-items: baseline; padding: 20px 0; border-bottom: 0.5px solid var(--border); transition: background 0.2s; cursor: pointer; }
+    .article-row:last-child { border-bottom: none; }
+    .article-row:hover { background: rgba(184,151,90,0.04); margin: 0 -32px; padding: 20px 32px; }
+    .article-date { font-size: 11px; letter-spacing: 0.08em; color: var(--muted); font-style: italic; font-family: 'Playfair Display', Georgia, serif; }
+    .article-cat { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+    .article-title { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 400; line-height: 1.35; color: var(--cream); }
+    .article-desc { font-size: 12px; color: var(--muted); margin-top: 4px; line-height: 1.65; }
+    .article-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+    .article-read { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s; white-space: nowrap; }
+    .article-row:hover .article-read { gap: 10px; }
+    .article-read::after { content: '→'; font-size: 12px; }
+    .badge { font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; white-space: nowrap; }
+    .badge-red { background: var(--red); color: #fff; }
+    .badge-gold { border: 0.5px solid var(--gold); color: var(--gold); }
+    .badge-muted { border: 0.5px solid var(--border); color: var(--muted); }
+    footer { padding: 32px 0; display: flex; justify-content: space-between; align-items: center; border-top: 0.5px solid var(--border); }
+    footer .logo { font-size: 16px; }
+    footer p { font-size: 11px; color: var(--muted); letter-spacing: 0.08em; }
+    footer nav { display: flex; gap: 24px; border: none; position: static; background: transparent; }
+    footer nav a { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; }
+    footer nav a:hover { color: var(--cream); }
+    .sub-form-block { display: flex; flex-direction: column; gap: 10px; }
+    .sub-input { padding: 12px 16px; background: rgba(255,255,255,0.05); border: 0.5px solid #7A7570; color: var(--cream); font-family: 'Jost', sans-serif; font-size: 13px; border-radius: 2px; outline: none; transition: border-color 0.2s; width: 100%; }
+    .sub-input::placeholder { color: var(--muted); }
+    .sub-input:focus { border-color: var(--gold); }
+    .sub-btn { display: block; text-align: center; padding: 12px 16px; background: var(--gold); color: var(--ink); font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; border-radius: 2px; cursor: pointer; transition: background 0.2s; font-weight: 500; text-decoration: none; }
+    .sub-btn:hover { background: #caa96a; }
+    .sub-note { font-size: 10px; color: var(--muted); text-align: center; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <div class="nav-inner">
+        <div class="logo"><a href="index.html">Circuit <span>Couture</span></a></div>
+        <ul class="nav-links">
+          <li><a href="article-miami-2026.html">Cultural Grid</a></li>
+          <li><a href="post-race-miami-2026.html">Post-Race</a></li>
+          <li><a href="espresso-miami-2026.html">Espresso Dispatch</a></li>
+          <li><a href="archive.html" class="active">Archive</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#" class="nl-btn" onclick="openNewsletter(); return false;">Newsletter</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="archive-header">
+      <div class="eyebrow">Every piece, every race</div>
+      <h1>The Archive</h1>
+      <p>All Cultural Grid Previews, Post-Race Dispatches and Espresso Dispatches — from the first round to the last flag.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="filter-tabs">
+      <button class="filter-tab active" onclick="filterArchive('all', this)">All</button>
+      <button class="filter-tab" onclick="filterArchive('cultural', this)">Cultural Grid</button>
+      <button class="filter-tab" onclick="filterArchive('postrace', this)">Post-Race</button>
+      <button class="filter-tab" onclick="filterArchive('espresso', this)">Espresso Dispatch</button>
+    </div>
+  </div>
+
+  <div class="container" id="archive-list">
+
+    <div class="archive-section" data-type="cultural">
+      <div class="section-label">Cultural Grid Preview</div>
+      <div class="article-row" onclick="window.location='article-miami-2026.html'">
+        <div class="article-date">Apr 29</div>
+        <div class="article-info">
+          <div class="article-cat">Round 4 — Miami (Sprint)</div>
+          <div class="article-title">Miami, Where Art Deco Meets the Asphalt</div>
+          <div class="article-desc">Wynwood, Jacquemus, Little Havana, Julia Tuttle, Sprint format, Hamilton in red.</div>
+        </div>
+        <div class="article-meta">
+          <span class="article-read">Read</span>
+          <span class="badge badge-gold">16 min</span>
+        </div>
+      </div>
+      <div class="article-row" style="opacity:0.4;cursor:default;">
+        <div class="article-date">Coming</div>
+        <div class="article-info">
+          <div class="article-cat">Round 5 — Monaco</div>
+          <div class="article-title">Monaco, Where the Street Is the Stage</div>
+          <div class="article-desc">Yves Saint Laurent, the Nouvelle Vague, and the tightest circuit on the calendar.</div>
+        </div>
+        <div class="article-meta"><span class="badge badge-muted">Soon</span></div>
+      </div>
+    </div>
+
+    <div class="archive-section" data-type="espresso">
+      <div class="section-label">The Espresso Dispatch</div>
+      <div class="article-row" onclick="window.location='espresso-miami-2026.html'">
+        <div class="article-date">May 3</div>
+        <div class="article-info">
+          <div class="article-cat">Issue No. 001 — Pre-Miami</div>
+          <div class="article-title">The Café Cubano Cloud, Jamie Chadwick, and Antes del Arranque</div>
+          <div class="article-desc">Coffee recipe, playlist, women in motorsport, Pinterest picks, two quotes.</div>
+        </div>
+        <div class="article-meta">
+          <span class="article-read">Read</span>
+          <span class="badge badge-muted">Sunday</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="archive-section" data-type="postrace">
+  <div class="section-label">Post-Race Dispatch</div>
+
+  <div class="article-row" style="opacity:0.45; cursor:default;" onclick="window.location='./post-race-miami-2026.html'">
+    <div class="article-date">Coming</div>
+    <div class="article-info">
+      <div class="article-cat">Round 4 — Miami</div>
+      <div class="article-title">The first Post-Race Dispatch drops Monday May 4th</div>
+      <div class="article-desc">Race summary, fashion icon, quote, song and colour palette — after the chequered flag.</div>
+    </div>
+    <div class="article-meta">
+      <span class="badge badge-muted">Soon</span>
+    </div>
+  </div>
+
+</div>
+
+  <div class="container">
+    <footer>
+      <div class="logo serif">Circuit <span style="color:var(--gold);">Couture</span></div>
+      <p>Fashion × Art × Formula 1</p>
+      <nav><a href="#">Instagram</a><a href="#">Pinterest</a><a href="contact.html">Contact</a></nav>
+    </footer>
+  </div>
+
+  <div id="nl-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:999;align-items:center;justify-content:center;">
+    <div style="background:#111110;border:0.5px solid #1E1D1A;padding:40px;max-width:420px;width:90%;position:relative;border-radius:2px;">
+      <button onclick="closeNewsletter()" style="position:absolute;top:16px;right:20px;background:none;border:none;color:#7A7570;font-size:20px;cursor:pointer;line-height:1;">×</button>
+      <div style="font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:#B8975A;margin-bottom:16px;">Every Sunday</div>
+      <div style="font-family:'Playfair Display',Georgia,serif;font-size:28px;font-weight:400;margin-bottom:8px;">The Espresso<br>Dispatch</div>
+      <p style="font-size:13px;color:#7A7570;line-height:1.8;margin-bottom:24px;">Coffee, playlists, women in motorsport, Pinterest picks. Free, always.</p>
+      <div class="sub-form-block">
+        <input type="email" class="sub-input" placeholder="your@email.com" />
+        <a href="https://circuitc.substack.com/" target="_blank" class="sub-btn" onclick="handleSub(this);return false;">Subscribe →</a>
+        <p class="sub-note">Free · Sundays only · No spam</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    function filterArchive(type, btn) {
+      document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.archive-section').forEach(section => {
+        section.style.display = (type === 'all' || section.dataset.type === type) ? 'block' : 'none';
+      });
+    }
+    function handleSub(link) { const input=link.previousElementSibling; const email=input.value.trim(); if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){input.style.borderColor='#C8293B';input.placeholder='Please enter a valid email';setTimeout(()=>{input.style.borderColor='';input.placeholder='your@email.com';},2000);return;} window.open('https://circuitc.substack.com?email='+encodeURIComponent(email),'_blank'); }
+    function openNewsletter(){document.getElementById('nl-overlay').style.display='flex';document.body.style.overflow='hidden';}
+    function closeNewsletter(){document.getElementById('nl-overlay').style.display='none';document.body.style.overflow='';}
+    document.getElementById('nl-overlay').addEventListener('click',function(e){if(e.target===this)closeNewsletter();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeNewsletter();});
+  </script>
+</body>
+</html>

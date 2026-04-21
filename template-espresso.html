@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Espresso Dispatch — Issue No. 001 — Circuit Couture</title>
+  <meta name="description" content="The first edition. A café cubano recipe, Jamie Chadwick, a playlist called Antes del Arranque, and the two quotes that carry the week. Every Sunday.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #0B0B0A; --cream: #F2EDE3; --gold: #B8975A; --red: #C8293B; --muted: #7A7570; --border: #1E1D1A; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--ink); color: var(--cream); font-family: 'Jost', 'Helvetica Neue', sans-serif; font-weight: 300; font-size: 15px; line-height: 1.7; }
+    .serif { font-family: 'Playfair Display', Georgia, serif; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+    nav { border-bottom: 0.5px solid var(--border); position: sticky; top: 0; background: var(--ink); z-index: 100; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; }
+    .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream); }
+    .logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 20px; list-style: none; align-items: center; }
+    .nav-links a { font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; font-weight: 400; }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-links .nl-btn { color: var(--gold); border: 0.5px solid var(--gold); padding: 5px 14px; border-radius: 2px; transition: background 0.2s, color 0.2s; }
+    .nav-links .nl-btn:hover { background: var(--gold); color: var(--ink); }
+    .dispatch-header { padding: 64px 0 48px; border-bottom: 0.5px solid var(--border); text-align: center; }
+    .eyebrow { font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: block; }
+    .dispatch-header h1 { font-family: 'Playfair Display', Georgia, serif; font-size: 60px; line-height: 1.08; font-weight: 700; margin-bottom: 16px; }
+    .dispatch-header h1 em { font-style: italic; color: var(--gold); }
+    .dispatch-header .issue-line { font-size: 13px; color: var(--muted); letter-spacing: 0.08em; margin-bottom: 28px; }
+    .dispatch-header .intro { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-style: italic; line-height: 1.7; color: rgba(242,237,227,0.75); max-width: 580px; margin: 0 auto 32px; }
+    .badge { background: var(--red); color: #fff; padding: 5px 14px; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 2px; font-weight: 400; }
+    .badge.gold { background: transparent; border: 0.5px solid var(--gold); color: var(--gold); }
+    .header-meta { display: inline-flex; align-items: center; gap: 20px; margin-top: 20px; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+    .opening-quote { padding: 48px 0; border-bottom: 0.5px solid var(--border); text-align: center; }
+    .opening-quote blockquote { font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-style: italic; line-height: 1.45; color: var(--cream); max-width: 640px; margin: 0 auto 16px; }
+    .opening-quote cite { font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); font-style: normal; }
+    .content-section { padding: 48px 0; border-bottom: 0.5px solid var(--border); }
+    .section-heading { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 28px; }
+    .section-heading h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 400; }
+    .section-heading span { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+    .coffee-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .coffee-recipe h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 24px; font-weight: 400; margin-bottom: 8px; }
+    .coffee-recipe .origin { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .coffee-recipe p { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 20px; }
+    .recipe-steps { list-style: none; }
+    .recipe-steps li { display: flex; gap: 16px; padding: 12px 0; border-bottom: 0.5px solid var(--border); font-size: 13px; color: rgba(242,237,227,0.8); line-height: 1.65; }
+    .recipe-steps li:last-child { border-bottom: none; }
+    .step-num { font-family: 'Playfair Display', Georgia, serif; font-size: 13px; font-style: italic; color: var(--gold); flex-shrink: 0; width: 20px; }
+    .coffee-shop { border: 0.5px solid var(--border); padding: 28px 24px; }
+    .coffee-shop .shop-label { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 14px; }
+    .coffee-shop h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 400; margin-bottom: 6px; }
+    .coffee-shop .location { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+    .coffee-shop p { font-size: 13px; color: var(--muted); line-height: 1.75; }
+    .playlist-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border: 0.5px solid var(--border); }
+    .track-row { display: flex; align-items: center; gap: 20px; padding: 16px 24px; border-right: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); transition: background 0.2s; }
+    .track-row:nth-child(2n) { border-right: none; }
+    .track-row:nth-last-child(-n+2) { border-bottom: none; }
+    .track-row:hover { background: rgba(184,151,90,0.04); }
+    .track-num { font-family: 'Playfair Display', Georgia, serif; font-size: 13px; font-style: italic; color: var(--muted); width: 20px; flex-shrink: 0; }
+    .track-info { flex: 1; }
+    .track-title { font-size: 14px; color: var(--cream); margin-bottom: 2px; }
+    .track-artist { font-size: 12px; color: var(--muted); }
+    .track-vibe { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); border: 0.5px solid rgba(184,151,90,0.3); padding: 3px 10px; border-radius: 2px; white-space: nowrap; }
+    .woman-feature { border-left: 2px solid var(--gold); padding: 4px 0 4px 32px; margin: 28px 0; }
+    .woman-feature h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; font-weight: 400; margin-bottom: 4px; }
+    .woman-feature .role { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: block; }
+    .woman-feature p { font-size: 14px; color: var(--muted); line-height: 1.8; }
+    .pinterest-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 0.5px solid var(--border); }
+    .pinterest-card { padding: 24px 20px; border-right: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); }
+    .pinterest-card:nth-child(3n) { border-right: none; }
+    .pinterest-card:nth-last-child(-n+3) { border-bottom: none; }
+    .pin-handle { font-size: 11px; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 10px; display: block; }
+    .pinterest-card h4 { font-family: 'Playfair Display', Georgia, serif; font-size: 15px; font-weight: 400; line-height: 1.4; margin-bottom: 8px; }
+    .pinterest-card p { font-size: 12px; color: var(--muted); line-height: 1.7; }
+    .subscribe-section { padding: 56px 0; background: rgba(184,151,90,0.04); border-bottom: 0.5px solid var(--border); }
+    .subscribe-inner { text-align: center; max-width: 480px; margin: 0 auto; }
+    .subscribe-inner h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 32px; font-weight: 400; margin-bottom: 12px; }
+    .subscribe-inner p { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 24px; }
+    .sub-form-block { display: flex; flex-direction: column; gap: 10px; }
+    .sub-input { padding: 12px 16px; background: rgba(255,255,255,0.05); border: 0.5px solid #7A7570; color: var(--cream); font-family: 'Jost', sans-serif; font-size: 13px; border-radius: 2px; outline: none; transition: border-color 0.2s; width: 100%; }
+    .sub-input::placeholder { color: var(--muted); }
+    .sub-input:focus { border-color: var(--gold); }
+    .sub-btn { display: block; text-align: center; padding: 12px 16px; background: var(--gold); color: var(--ink); font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; border-radius: 2px; cursor: pointer; transition: background 0.2s; font-weight: 500; text-decoration: none; }
+    .sub-btn:hover { background: #caa96a; }
+    .sub-note { font-size: 10px; color: var(--muted); text-align: center; letter-spacing: 0.06em; }
+    footer { padding: 32px 0; display: flex; justify-content: space-between; align-items: center; border-top: 0.5px solid var(--border); }
+    footer .logo { font-size: 16px; }
+    footer p { font-size: 11px; color: var(--muted); letter-spacing: 0.08em; }
+    footer nav { display: flex; gap: 24px; border: none; position: static; background: transparent; }
+    footer nav a { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; }
+    footer nav a:hover { color: var(--cream); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <div class="nav-inner">
+        <div class="logo"><a href="index.html">Circuit <span>Couture</span></a></div>
+        <ul class="nav-links">
+          <li><a href="article-miami-2026.html">Cultural Grid</a></li>
+          <li><a href="template-post-race.html">Post-Race</a></li>
+          <li><a href="espresso-miami-2026.html">Espresso Dispatch</a></li>
+          <li><a href="archive.html">Archive</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#" class="nl-btn" onclick="openNewsletter(); return false;">Newsletter</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="dispatch-header">
+      <span class="eyebrow">Every Sunday — Issue No. 001</span>
+      <h1>The <em>Espresso</em><br>Dispatch</h1>
+      <p class="issue-line">Sunday, April 27, 2026 — Pre-Miami GP Edition</p>
+      <p class="intro">The first edition. A recipe from Little Havana, the woman who chose infrastructure over fame, a playlist built for the week before it all begins. Miami starts Thursday. Welcome.</p>
+      <div class="header-meta">
+        <span class="badge">Sunday Edition</span>
+        <span class="badge gold">Issue 001</span>
+        <span>10 min read</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="opening-quote">
+      <blockquote>"Begin anywhere."</blockquote>
+      <cite>— John Cage</cite>
+    </div>
+  </div>
+
+  <!-- COFFEE RECIPE -->
+  <div class="container">
+    <div class="content-section">
+      <div class="section-heading">
+        <h2 class="serif">Coffee Recipe of the Week</h2>
+        <span>The Café Cubano Cloud</span>
+      </div>
+
+      <div class="coffee-layout">
+        <div class="coffee-recipe">
+          <h3>Café Cubano Cloud</h3>
+          <div class="origin">Inspired by Little Havana, Miami</div>
+          <p>The original café cubano is one of the most culturally specific coffees in the world — a double ristretto pulled directly onto demerara sugar, which the crema emulsifies into a pale, silky espuma on top. This version adds one cold element: a single ice cube in a warm demitasse glass that chills the bottom while the hot crema floats above. Two temperatures. One cup. The kind of coffee that has an opinion about itself.</p>
+          <ol class="recipe-steps">
+            <li><span class="step-num">1.</span>Place one teaspoon of demerara sugar in a small metal or glass espresso cup. The sugar must be dark — white sugar won't create the same espuma.</li>
+            <li><span class="step-num">2.</span>Pull a double ristretto (18g in, 25–30ml out, shorter and sweeter than espresso). Pull it directly onto the sugar.</li>
+            <li><span class="step-num">3.</span>Immediately stir with energy — thirty seconds minimum. You are creating the espuma: the sugar and crema should emulsify into a pale, almost caramel-coloured foam.</li>
+            <li><span class="step-num">4.</span>Drop a single small ice cube into a wider glass. Pour the espuma-topped coffee over it in one slow motion.</li>
+            <li><span class="step-num">5.</span>Do not stir again. Drink it in three or four sips. This coffee is not for lingering.</li>
+          </ol>
+        </div>
+
+        <div>
+          <div class="coffee-shop">
+            <span class="shop-label">Coffee Shop of the Week</span>
+            <h3>Panther Coffee</h3>
+            <div class="location">Wynwood, Miami</div>
+            <p>Founded in 2010 by Joel and Leticia Pollock, Panther has been roasting seriously in Miami since before Wynwood became the kind of place people go to be photographed. The Wynwood location has a garden — unusual for a building surrounded by murals — and a long communal table where the conversations that matter in Miami happen. They source single-origin with the rigour of a European specialty roaster and serve it with the warmth of somewhere that has never been trying to impress you. The Honduran on filter right now is exceptional. Go before the race weekend makes the neighbourhood impossible.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLAYLIST -->
+  <div class="container">
+    <div class="content-section">
+      <div class="section-heading">
+        <h2 class="serif">Playlist of the Week</h2>
+        <span>Antes del Arranque</span>
+      </div>
+
+      <p style="font-size:14px;color:var(--muted);max-width:600px;line-height:1.8;margin-bottom:28px;">Eight tracks for the Sunday before Miami. Not energy — something more considered than that. The kind of music that reminds you why you care about the things you care about, before the week starts and the noise arrives. It begins warm, it builds, it lands somewhere quiet. That's the structure of every good race week.</p>
+
+      <div class="playlist-grid">
+        <div class="track-row">
+          <span class="track-num">01</span>
+          <div class="track-info"><div class="track-title">Me Voy</div><div class="track-artist">Julieta Venegas</div></div>
+          <span class="track-vibe">Opening</span>
+        </div>
+        <div class="track-row">
+          <span class="track-num">02</span>
+          <div class="track-info"><div class="track-title">Electric Feel</div><div class="track-artist">MGMT</div></div>
+          <span class="track-vibe">Build</span>
+        </div>
+        <div class="track-row">
+          <span class="track-num">03</span>
+          <div class="track-info"><div class="track-title">Tusa</div><div class="track-artist">Karol G & Nicki Minaj</div></div>
+          <span class="track-vibe">Miami</span>
+        </div>
+        <div class="track-row">
+          <span class="track-num">04</span>
+          <div class="track-info"><div class="track-title">Midnight City</div><div class="track-artist">M83</div></div>
+          <span class="track-vibe">Drive</span>
+        </div>
+        <div class="track-row">
+          <span class="track-num">05</span>
+          <div class="track-info"><div class="track-title">Tessellate</div><div class="track-artist">Alt-J</div></div>
+          <span class="track-vibe">Focus</span>
+        </div>
+        <div class="track-row">
+          <span class="track-num">06</span>
+          <div class="track-info"><div class="track-title">Nightcall</div><div class="track-artist">Kavinsky</div></div>
+          <span class="track-vibe">Speed</span>
+        </div>
+        <div class="track-row">
+          <span class="track-num">07</span>
+          <div class="track-info"><div class="track-title">Don't Delete the Kisses</div><div class="track-artist">Wolf Alice</div></div>
+          <span class="track-vibe">Longing</span>
+        </div>
+        <div class="track-row">
+          <span class="track-num">08</span>
+          <div class="track-info"><div class="track-title">Corcovado</div><div class="track-artist">João Gilberto</div></div>
+          <span class="track-vibe">Landing</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WOMEN IN MOTORSPORT -->
+  <div class="container">
+    <div class="content-section">
+      <div class="section-heading">
+        <h2 class="serif">Woman in Motorsport</h2>
+        <span>Who inspires us this week</span>
+      </div>
+
+      <div class="woman-feature">
+        <h3>Jamie Chadwick</h3>
+        <span class="role">Racing Driver — Andretti IndyCar, Former W Series Champion</span>
+        <p>In 2019, Jamie Chadwick became the first woman to win the British Formula Ford Festival, one of the oldest and most competitive junior single-seater races in the world. She was twenty-one. She then won the W Series — the all-female single-seater championship — three consecutive times, in 2019, 2021, and 2022. She became a development driver for Williams F1. She tested, she participated in practice sessions, she was consistently faster than the data suggested she should have been. The door to a race seat did not open.</p>
+      </div>
+
+      <p style="font-size:14px;color:var(--muted);max-width:640px;line-height:1.8;margin-top:20px;">In 2024, Chadwick joined Andretti Global in IndyCar — one of the most competitive open-wheel series in the world. It was a significant step. IndyCar is not Formula 1, but it is not a lesser thing: it is a different kind of challenge, a series that rewards versatility and racecraft and the ability to adapt to ovals, street circuits, and road courses within the same season. She has been competitive, not yet winning, still learning. The fact that she made it here at all — that she kept going after the F1 door stayed closed — is the more interesting story. The most common version of this story ends in resignation. Hers hasn't.</p>
+
+      <p style="font-size:14px;color:var(--muted);max-width:640px;line-height:1.8;margin-top:14px;">What we find most worth thinking about with Jamie Chadwick is not the records she has set — though those matter — but the specific quality of persistence that her career represents. She has operated for years in a space where the structural barriers were real, where the question of whether a woman could compete at the highest level was still being argued as if it were a legitimate open question. She answered it, repeatedly, with lap times. And then she kept going.</p>
+    </div>
+  </div>
+
+  <!-- PINTEREST -->
+  <div class="container">
+    <div class="content-section">
+      <div class="section-heading">
+        <h2 class="serif">Pinterest Picks</h2>
+        <span>Three accounts for this Sunday</span>
+      </div>
+
+      <div class="pinterest-grid">
+        <div class="pinterest-card">
+          <span class="pin-handle">@wynwoodwalls</span>
+          <h4>Wynwood Walls Official</h4>
+          <p>The official account of the Miami street art district. What it documents — murals, artists, the conversation between walls — is the visual grammar that this city runs on. Follow it before race week as preparation for understanding what you're actually looking at when you're there.</p>
+        </div>
+        <div class="pinterest-card">
+          <span class="pin-handle">@racingarchivesfilm</span>
+          <h4>Racing Archives Film</h4>
+          <p>Analogue photography of Formula 1 from the 1960s to the 1990s. Every post is a reminder that the most beautiful era of the sport was also the most dangerous, and that beauty and danger have always been exactly that entangled. The colour work from the 1970s is particularly extraordinary.</p>
+        </div>
+        <div class="pinterest-card">
+          <span class="pin-handle">@paddock.edit</span>
+          <h4>Paddock Edit</h4>
+          <p>The most thoughtful curation of what is actually being worn in the paddock — focused on the people who have something to say beyond the obvious brand placements. Heavily female-weighted in its focus. The kind of account that makes you realise the paddock fashion conversation is more interesting than it gets credit for.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLOSING QUOTE -->
+  <div class="container">
+    <div style="padding:48px 0;border-bottom:0.5px solid var(--border);text-align:center;">
+      <blockquote style="font-family:'Playfair Display',Georgia,serif;font-size:24px;font-style:italic;line-height:1.5;max-width:560px;margin:0 auto 14px;color:rgba(242,237,227,0.8);">
+        "Elegance is not about being noticed, it is about being remembered."
+      </blockquote>
+      <cite style="font-size:10px;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted);font-style:normal;">— Giorgio Armani</cite>
+    </div>
+  </div>
+
+  <div class="subscribe-section">
+    <div class="container">
+      <div class="subscribe-inner">
+        <h2 class="serif">See you next Sunday</h2>
+        <p>Every week — one coffee recipe, one playlist, one woman who is changing what's possible, three Pinterest accounts, and two quotes. After Miami, the first Post-Race Dispatch. Sundays only. Never spam.</p>
+        <div class="sub-form-block">
+          <input type="email" class="sub-input" placeholder="your@email.com" />
+          <a href="https://circuitc.substack.com" target="_blank" class="sub-btn" onclick="handleSub(this);return false;">Subscribe free →</a>
+          <p class="sub-note">Free · Sundays only · No spam</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <footer>
+      <div class="logo serif">Circuit <span style="color:var(--gold);">Couture</span></div>
+      <p>Fashion × Art × Formula 1</p>
+      <nav>
+        <a href="#">Instagram</a>
+        <a href="#">Pinterest</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </footer>
+  </div>
+
+  <div id="nl-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:999;align-items:center;justify-content:center;">
+    <div style="background:#111110;border:0.5px solid #1E1D1A;padding:40px;max-width:420px;width:90%;position:relative;border-radius:2px;">
+      <button onclick="closeNewsletter()" style="position:absolute;top:16px;right:20px;background:none;border:none;color:#7A7570;font-size:20px;cursor:pointer;line-height:1;">×</button>
+      <div style="font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:#B8975A;margin-bottom:16px;">Every Sunday</div>
+      <div style="font-family:'Playfair Display',Georgia,serif;font-size:28px;font-weight:400;margin-bottom:8px;">The Espresso<br>Dispatch</div>
+      <p style="font-size:13px;color:#7A7570;line-height:1.8;margin-bottom:24px;">Coffee, playlists, women in motorsport, Pinterest picks. Free, always.</p>
+      <div class="sub-form-block">
+        <input type="email" class="sub-input" placeholder="your@email.com" />
+        <a href="https://circuitc.substack.com" target="_blank" class="sub-btn" onclick="handleSub(this);return false;">Subscribe →</a>
+        <p class="sub-note">Free · Sundays only · No spam</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function handleSub(link) {
+      const input = link.previousElementSibling;
+      const email = input.value.trim();
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        input.style.borderColor = '#C8293B';
+        input.placeholder = 'Please enter a valid email';
+        setTimeout(() => { input.style.borderColor = ''; input.placeholder = 'your@email.com'; }, 2000);
+        return;
+      }
+      window.open('https://circuitc.substack.com?email=' + encodeURIComponent(email), '_blank');
+    }
+    function openNewsletter() { document.getElementById('nl-overlay').style.display='flex'; document.body.style.overflow='hidden'; }
+    function closeNewsletter() { document.getElementById('nl-overlay').style.display='none'; document.body.style.overflow=''; }
+    document.getElementById('nl-overlay').addEventListener('click', function(e) { if(e.target===this) closeNewsletter(); });
+    document.addEventListener('keydown', function(e) { if(e.key==='Escape') closeNewsletter(); });
+  </script>
+</body>
+</html>

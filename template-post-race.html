@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Post-Race Dispatch — Bahrain GP — Circuit Couture</title>
+  <meta name="description" content="Race summary, fashion icon, quote of the week, song, and colour palette. Everything that mattered after Bahrain.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #0B0B0A; --cream: #F2EDE3; --gold: #B8975A; --red: #C8293B; --muted: #7A7570; --border: #1E1D1A; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--ink); color: var(--cream); font-family: 'Jost', 'Helvetica Neue', sans-serif; font-weight: 300; font-size: 15px; line-height: 1.7; }
+    .serif { font-family: 'Playfair Display', Georgia, serif; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+    nav { border-bottom: 0.5px solid var(--border); position: sticky; top: 0; background: var(--ink); z-index: 100; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; }
+    .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream); }
+    .logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 20px; list-style: none; align-items: center; }
+    .nav-links a { font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; font-weight: 400; }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-links .nl-btn { color: var(--gold); border: 0.5px solid var(--gold); padding: 5px 14px; border-radius: 2px; transition: background 0.2s, color 0.2s; }
+    .nav-links .nl-btn:hover { background: var(--gold); color: var(--ink); }
+    .pr-header { padding: 64px 0 48px; border-bottom: 0.5px solid var(--border); }
+    .breadcrumb { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 28px; display: flex; align-items: center; gap: 10px; }
+    .breadcrumb a { color: var(--gold); }
+    .breadcrumb .sep { color: var(--border); }
+    .eyebrow { font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+    .eyebrow::before { content: ''; display: inline-block; width: 28px; height: 0.5px; background: var(--gold); }
+    .pr-header h1 { font-family: 'Playfair Display', Georgia, serif; font-size: 52px; line-height: 1.1; font-weight: 700; margin-bottom: 16px; }
+    .pr-header h1 em { font-style: italic; color: var(--gold); }
+    .pr-header .deck { font-size: 15px; color: var(--muted); max-width: 600px; line-height: 1.85; margin-bottom: 28px; font-weight: 300; }
+    .meta { display: flex; align-items: center; gap: 24px; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); padding-top: 24px; border-top: 0.5px solid var(--border); }
+    .badge { background: var(--red); color: #fff; padding: 5px 14px; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 2px; font-weight: 400; }
+    .badge.gold { background: transparent; border: 0.5px solid var(--gold); color: var(--gold); }
+    .result-strip { display: grid; grid-template-columns: repeat(3, 1fr); border: 0.5px solid var(--border); margin: 40px 0; }
+    .result-cell { padding: 20px 24px; border-right: 0.5px solid var(--border); }
+    .result-cell:last-child { border-right: none; }
+    .result-cell .pos { font-family: 'Playfair Display', Georgia, serif; font-size: 11px; font-style: italic; color: var(--muted); display: block; margin-bottom: 4px; }
+    .result-cell .driver { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 400; color: var(--cream); }
+    .result-cell .team { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+    .result-cell .time { font-size: 12px; color: var(--gold); margin-top: 6px; }
+    .dispatch-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 0.5px solid var(--border); margin-bottom: 40px; }
+    .dispatch-cell { padding: 36px 32px; border-right: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); }
+    .dispatch-cell:nth-child(2n) { border-right: none; }
+    .dispatch-cell:nth-last-child(-n+2) { border-bottom: none; }
+    .cell-label { font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 16px; font-weight: 400; }
+    .dispatch-cell h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; line-height: 1.3; font-weight: 400; margin-bottom: 14px; }
+    .dispatch-cell p { font-size: 14px; color: var(--muted); line-height: 1.8; }
+    .fashion-name { font-family: 'Playfair Display', Georgia, serif; font-size: 32px; font-weight: 400; line-height: 1.2; margin-bottom: 12px; }
+    .fashion-tag { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); border: 0.5px solid var(--gold); padding: 4px 12px; display: inline-block; border-radius: 2px; margin-bottom: 14px; }
+    .big-quote { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; font-style: italic; line-height: 1.45; color: var(--cream); margin-bottom: 14px; }
+    .quote-attr { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+    .song-title { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-style: italic; margin-bottom: 6px; }
+    .song-artist { font-size: 13px; color: var(--muted); margin-bottom: 14px; }
+    .play-btn { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream); border: 0.5px solid var(--border); padding: 8px 20px; border-radius: 2px; transition: border-color 0.2s; }
+    .play-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .play-btn::before { content: '▶'; font-size: 8px; }
+    .palette-name { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-style: italic; margin-bottom: 18px; }
+    .palette-row { display: flex; height: 80px; border-radius: 2px; overflow: hidden; margin-bottom: 16px; }
+    .palette-swatch { flex: 1; }
+    .swatch-labels { display: flex; }
+    .swatch-label { flex: 1; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding-top: 8px; text-align: center; }
+    .analysis { padding: 48px 0; border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); margin-bottom: 40px; }
+    .analysis-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 32px; }
+    .analysis-header h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-style: italic; font-weight: 400; }
+    .analysis p { font-size: 15px; color: rgba(242,237,227,0.8); line-height: 1.85; margin-bottom: 18px; max-width: 680px; }
+    .next-article { border-top: 0.5px solid var(--border); padding: 40px 0; display: flex; align-items: center; justify-content: space-between; }
+    .next-article .label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; display: block; }
+    .next-article h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 400; }
+    .next-link { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); display: inline-flex; align-items: center; gap: 8px; transition: gap 0.2s; }
+    .next-link:hover { gap: 14px; }
+    .next-link::after { content: '→'; font-size: 13px; }
+    .sub-form-block { display: flex; flex-direction: column; gap: 10px; }
+    .sub-input { padding: 12px 16px; background: rgba(255,255,255,0.05); border: 0.5px solid #7A7570; color: var(--cream); font-family: 'Jost', sans-serif; font-size: 13px; border-radius: 2px; outline: none; transition: border-color 0.2s; width: 100%; }
+    .sub-input::placeholder { color: var(--muted); }
+    .sub-input:focus { border-color: var(--gold); }
+    .sub-btn { display: block; text-align: center; padding: 12px 16px; background: var(--gold); color: var(--ink); font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; border-radius: 2px; cursor: pointer; transition: background 0.2s; font-weight: 500; text-decoration: none; }
+    .sub-btn:hover { background: #caa96a; }
+    .sub-note { font-size: 10px; color: var(--muted); text-align: center; }
+    footer { padding: 32px 0; display: flex; justify-content: space-between; align-items: center; border-top: 0.5px solid var(--border); }
+    footer .logo { font-size: 16px; }
+    footer p { font-size: 11px; color: var(--muted); letter-spacing: 0.08em; }
+    footer nav { display: flex; gap: 24px; border: none; position: static; background: transparent; }
+    footer nav a { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; }
+    footer nav a:hover { color: var(--cream); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <div class="nav-inner">
+        <div class="logo"><a href="index.html">Circuit <span>Couture</span></a></div>
+        <ul class="nav-links">
+          <li><a href="article-miami-2026.html">Cultural Grid</a></li>
+          <li><a href="post-race-miami-2026.html">Post-Race</a></li>
+          <li><a href="espresso-miami-2026.html">Espresso Dispatch</a></li>
+          <li><a href="archive.html">Archive</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#" class="nl-btn" onclick="openNewsletter(); return false;">Newsletter</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="pr-header">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a><span class="sep">/</span>
+        <a href="archive.html">Post-Race Dispatch</a><span class="sep">/</span>
+        Bahrain GP 2026
+      </div>
+      <div class="eyebrow">Post-Race Dispatch — Round 1</div>
+      <h1>Verstappen in Control,<br><em>Ferrari in Sublime Chaos</em></h1>
+      <p class="deck">Max dominated. A collision that ignited every debate. A Leclerc who reminded us why the Tifosi never sleep. Everything that mattered after Bahrain.</p>
+      <div class="meta">
+        <span class="badge">Monday Edition</span>
+        <span class="badge gold">Bahrain Grand Prix 2026</span>
+        <span>Monday, March 23</span>
+        <span>6 min read</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="result-strip">
+      <div class="result-cell"><span class="pos">1st</span><div class="driver">Verstappen</div><div class="team">Red Bull Racing</div><div class="time">1:31:44.742</div></div>
+      <div class="result-cell"><span class="pos">2nd</span><div class="driver">Leclerc</div><div class="team">Scuderia Ferrari</div><div class="time">+6.305s</div></div>
+      <div class="result-cell"><span class="pos">3rd</span><div class="driver">Norris</div><div class="team">McLaren</div><div class="time">+14.088s</div></div>
+    </div>
+
+    <div class="dispatch-grid">
+      <div class="dispatch-cell">
+        <span class="cell-label">Race Analysis</span>
+        <h2>The Desert Showed Neither Mercy Nor Shade</h2>
+        <p>Two stories ran simultaneously. In the first: Verstappen produced a performance so controlled it was almost offhand — managing the gap, managing the tyres, managing the narrative. In the second: Ferrari imploded with the operatic drama that makes you love and hate them equally. The collision between Sainz and Hamilton on lap 34 will fuel debate for weeks. The desert answered no questions about the championship. It only sharpened them.</p>
+      </div>
+      <div class="dispatch-cell">
+        <span class="cell-label">Fashion Icon of the Weekend</span>
+        <div class="fashion-name">Kika Cerqueira<br>Gomes</div>
+        <span class="fashion-tag">Paddock Style</span>
+        <p>Tailored cream linen in thirty-eight degree heat. No jewellery. One pair of understated loafers. The entire paddock looking at their phones while she stood there being the most interesting thing in the room. Paddock chic redefined by someone who has clearly never needed to try.</p>
+      </div>
+      <div class="dispatch-cell">
+        <span class="cell-label">Quote of the Week</span>
+        <div class="big-quote">"Speed is the shape freedom takes."</div>
+        <div class="quote-attr">Submitted by a reader after watching the start from Turn 1</div>
+        <p style="margin-top:14px;">We asked readers to send the one sentence that stayed with them after Sunday. This is the one that stayed with us.</p>
+      </div>
+      <div class="dispatch-cell">
+        <span class="cell-label">Song of the Week</span>
+        <div class="song-title">"Gold Dust"</div>
+        <div class="song-artist">DJ Fresh ft. Ms Dynamite</div>
+        <p>Because Verstappen winning feels, at this point in the season, inevitable in the way a great bassline feels inevitable — you heard it before it arrived. The song sounds exactly like what the Sakhir sunset looks like from the grandstand.</p>
+        <a href="#" class="play-btn">Listen on Spotify</a>
+      </div>
+    </div>
+
+    <div style="border:0.5px solid var(--border);padding:36px 32px;margin-bottom:40px;">
+      <span class="cell-label">Colour Palette of the Week</span>
+      <div class="palette-name">Desert Dusk</div>
+      <div class="palette-row">
+        <div class="palette-swatch" style="background:#C8A060;"></div>
+        <div class="palette-swatch" style="background:#3D2B1F;"></div>
+        <div class="palette-swatch" style="background:#D4C5A9;"></div>
+        <div class="palette-swatch" style="background:#1C1410;"></div>
+        <div class="palette-swatch" style="background:#8B6A4A;"></div>
+      </div>
+      <div class="swatch-labels">
+        <div class="swatch-label">Saffron</div><div class="swatch-label">Oud</div>
+        <div class="swatch-label">Sand</div><div class="swatch-label">Dusk</div><div class="swatch-label">Camel</div>
+      </div>
+      <p style="margin-top:20px;font-size:13px;color:var(--muted);max-width:520px;line-height:1.75;">The Bahrain circuit at dusk is one of the more beautiful things in Formula 1. The track lights come on before the sun fully sets, and for about four minutes there is a quality of light that belongs to neither day nor night. This palette is that four minutes.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="analysis">
+      <div class="analysis-header">
+        <h2>What We're Watching for Next</h2>
+        <span style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);">Round 5 — Miami</span>
+      </div>
+      <p>Miami is where this season gets interesting. The Hard Rock circuit on the new 2026 regulations is an unknown quantity — the cars are smaller, the active aero changes how they load through the high-speed turns, and the three DRS zones create more genuine overtaking scenarios than any previous iteration of this event. Lando Norris won here in 2024. McLaren understands this track.</p>
+      <p>Fashion note: Miami week is when paddock style becomes genuinely considered. The heat, the setting, the social visibility — all of it shapes what appears trackside. Watch for the people who dress for the city rather than the cameras. They're usually the most interesting ones.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="next-article">
+      <div><span class="label">This Sunday</span><h3>The Espresso Dispatch — Issue No. 001</h3></div>
+      <a class="next-link" href="espresso-miami-2026.html">Read the dispatch</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <footer>
+      <div class="logo serif">Circuit <span style="color:var(--gold);">Couture</span></div>
+      <p>Fashion × Art × Formula 1</p>
+      <nav><a href="#">Instagram</a><a href="#">Pinterest</a><a href="contact.html">Contact</a></nav>
+    </footer>
+  </div>
+
+  <div id="nl-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:999;align-items:center;justify-content:center;">
+    <div style="background:#111110;border:0.5px solid #1E1D1A;padding:40px;max-width:420px;width:90%;position:relative;border-radius:2px;">
+      <button onclick="closeNewsletter()" style="position:absolute;top:16px;right:20px;background:none;border:none;color:#7A7570;font-size:20px;cursor:pointer;line-height:1;">×</button>
+      <div style="font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:#B8975A;margin-bottom:16px;">Every Sunday</div>
+      <div style="font-family:'Playfair Display',Georgia,serif;font-size:28px;font-weight:400;margin-bottom:8px;">The Espresso<br>Dispatch</div>
+      <p style="font-size:13px;color:#7A7570;line-height:1.8;margin-bottom:24px;">Coffee, playlists, women in motorsport, Pinterest picks. Free, always.</p>
+      <div class="sub-form-block">
+        <input type="email" class="sub-input" placeholder="your@email.com" />
+        <a href="https://circuitc.substack.com/" target="_blank" class="sub-btn" onclick="handleSub(this);return false;">Subscribe →</a>
+        <p class="sub-note">Free · Sundays only · No spam</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    function handleSub(link) { const input=link.previousElementSibling; const email=input.value.trim(); if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){input.style.borderColor='#C8293B';input.placeholder='Please enter a valid email';setTimeout(()=>{input.style.borderColor='';input.placeholder='your@email.com';},2000);return;} window.open('https://circuitc.substack.com?email='+encodeURIComponent(email),'_blank'); }
+    function openNewsletter(){document.getElementById('nl-overlay').style.display='flex';document.body.style.overflow='hidden';}
+    function closeNewsletter(){document.getElementById('nl-overlay').style.display='none';document.body.style.overflow='';}
+    document.getElementById('nl-overlay').addEventListener('click',function(e){if(e.target===this)closeNewsletter();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeNewsletter();});
+  </script>
+</body>
+</html>

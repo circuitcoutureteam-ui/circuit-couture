@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Miami, Where Art Deco Meets the Asphalt — Circuit Couture</title>
+  <meta name="description" content="Before the engines roar at Hard Rock Stadium, we trace Miami's roots — from its Art Basel empire to the designers who understand that heat is a design language.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #0B0B0A; --cream: #F2EDE3; --gold: #B8975A; --red: #C8293B; --muted: #7A7570; --border: #1E1D1A; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--ink); color: var(--cream); font-family: 'Jost', 'Helvetica Neue', sans-serif; font-weight: 300; font-size: 15px; line-height: 1.7; }
+    .serif { font-family: 'Playfair Display', Georgia, serif; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+    nav { border-bottom: 0.5px solid var(--border); position: sticky; top: 0; background: var(--ink); z-index: 100; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; }
+    .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream); }
+    .logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 20px; list-style: none; align-items: center; }
+    .nav-links a { font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; font-weight: 400; }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-links .nl-btn { color: var(--gold); border: 0.5px solid var(--gold); padding: 5px 14px; border-radius: 2px; transition: background 0.2s, color 0.2s; }
+    .nav-links .nl-btn:hover { background: var(--gold); color: var(--ink); }
+    .article-header { padding: 72px 0 56px; border-bottom: 0.5px solid var(--border); max-width: 760px; }
+    .breadcrumb { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 28px; display: flex; align-items: center; gap: 10px; }
+    .breadcrumb a { color: var(--gold); }
+    .breadcrumb .sep { color: var(--border); }
+    .article-eyebrow { font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+    .article-eyebrow::before { content: ''; display: inline-block; width: 28px; height: 0.5px; background: var(--gold); }
+    .article-header h1 { font-family: 'Playfair Display', Georgia, serif; font-size: 56px; line-height: 1.08; font-weight: 700; margin-bottom: 20px; }
+    .article-header h1 em { font-style: italic; color: var(--gold); }
+    .article-deck { font-size: 17px; color: var(--muted); line-height: 1.8; margin-bottom: 32px; font-weight: 300; font-family: 'Playfair Display', Georgia, serif; font-style: italic; }
+    .article-meta { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); padding-top: 24px; border-top: 0.5px solid var(--border); }
+    .badge { background: var(--red); color: #fff; padding: 5px 14px; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 2px; font-weight: 400; }
+    .badge.gold { background: transparent; border: 0.5px solid var(--gold); color: var(--gold); }
+    .article-layout { display: grid; grid-template-columns: 1fr 240px; gap: 64px; padding: 56px 0; align-items: start; }
+    .article-body h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 400; line-height: 1.25; margin: 48px 0 18px; color: var(--cream); }
+    .article-body h3 { font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin: 36px 0 14px; font-weight: 400; }
+    .article-body p { font-size: 16px; line-height: 1.85; color: rgba(242,237,227,0.85); margin-bottom: 22px; font-weight: 300; }
+    .article-body p:first-of-type::first-letter { font-family: 'Playfair Display', Georgia, serif; font-size: 64px; font-weight: 700; float: left; line-height: 0.85; margin: 6px 12px 0 0; color: var(--gold); }
+    .article-body blockquote { border-left: 2px solid var(--gold); padding: 4px 0 4px 28px; margin: 36px 0; }
+    .article-body blockquote p { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-style: italic; color: var(--cream); line-height: 1.55; margin: 0; }
+    .article-body blockquote p::first-letter { all: unset; }
+    .article-body blockquote cite { display: block; margin-top: 12px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-style: normal; }
+    .section-divider { display: flex; align-items: center; gap: 16px; margin: 40px 0; }
+    .section-divider span { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); flex-shrink: 0; }
+    .section-divider::before, .section-divider::after { content: ''; flex: 1; height: 0.5px; background: var(--border); }
+    .img-block { background: #1A1917; width: 100%; aspect-ratio: 16/9; border-radius: 2px; margin: 36px 0; display: flex; align-items: center; justify-content: center; border: 0.5px solid var(--border); }
+    .img-block span { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+    .img-caption { font-size: 11px; color: var(--muted); line-height: 1.6; margin-top: -28px; margin-bottom: 36px; font-style: italic; }
+    .article-sidebar { position: sticky; top: 80px; }
+    .sidebar-block { border: 0.5px solid var(--border); padding: 24px 20px; margin-bottom: 20px; }
+    .sidebar-label { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: block; }
+    .sidebar-block h4 { font-family: 'Playfair Display', Georgia, serif; font-size: 16px; line-height: 1.4; font-weight: 400; margin-bottom: 10px; }
+    .sidebar-block p { font-size: 12px; color: var(--muted); line-height: 1.7; }
+    .track-stat { display: flex; justify-content: space-between; align-items: baseline; padding: 8px 0; border-bottom: 0.5px solid var(--border); }
+    .track-stat:last-child { border-bottom: none; }
+    .track-stat .stat-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+    .track-stat .stat-value { font-family: 'Playfair Display', Georgia, serif; font-size: 14px; font-style: italic; color: var(--cream); }
+    .next-article { border-top: 0.5px solid var(--border); padding: 40px 0; display: flex; align-items: center; justify-content: space-between; }
+    .next-article .label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; display: block; }
+    .next-article h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 400; }
+    .next-link { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); display: inline-flex; align-items: center; gap: 8px; transition: gap 0.2s; }
+    .next-link:hover { gap: 14px; }
+    .next-link::after { content: '→'; font-size: 13px; }
+    .sub-form-block { display: flex; flex-direction: column; gap: 10px; }
+    .sub-input { padding: 10px 14px; background: rgba(255,255,255,0.04); border: 0.5px solid var(--border); color: var(--cream); font-family: 'Jost', sans-serif; font-size: 12px; border-radius: 2px; outline: none; transition: border-color 0.2s; width: 100%; }
+    .sub-input::placeholder { color: var(--muted); }
+    .sub-input:focus { border-color: var(--gold); }
+    .sub-btn { display: block; text-align: center; padding: 10px 14px; background: var(--gold); color: var(--ink); font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; border-radius: 2px; cursor: pointer; transition: background 0.2s; font-weight: 500; text-decoration: none; }
+    .sub-btn:hover { background: #caa96a; }
+    .sub-note { font-size: 10px; color: var(--muted); text-align: center; }
+    footer { padding: 32px 0; display: flex; justify-content: space-between; align-items: center; border-top: 0.5px solid var(--border); }
+    footer .logo { font-size: 16px; }
+    footer p { font-size: 11px; color: var(--muted); letter-spacing: 0.08em; }
+    footer nav { display: flex; gap: 24px; border: none; position: static; background: transparent; }
+    footer nav a { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; }
+    footer nav a:hover { color: var(--cream); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <div class="nav-inner">
+        <div class="logo"><a href="index.html">Circuit <span>Couture</span></a></div>
+        <ul class="nav-links">
+          <li><a href="article-miami-2026.html">Cultural Grid</a></li>
+          <li><a href="post-race-miami-2026.html">Post-Race</a></li>
+          <li><a href="espresso-miami-2026.html">Espresso Dispatch</a></li>
+          <li><a href="archive.html">Archive</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#" class="nl-btn" onclick="openNewsletter(); return false;">Newsletter</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="article-header">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep">/</span>
+        <a href="archive.html">Cultural Grid Preview</a>
+        <span class="sep">/</span>
+        Round X — [City]
+      </div>
+      <div class="article-eyebrow">The Cultural Grid Preview — Round 4</div>
+      <h1>[CITY], <em>[Title]</em></h1>
+      <p class="article-deck">Before the engines roar at Hard Rock Stadium, we trace Miami's soul — from its Art Basel empire to the designers who understand that heat is a design language, and the city beneath the gloss that nobody races through.</p>
+      <div class="article-meta">
+        <span class="badge">Wednesday Edition</span>
+        <span class="badge gold">[City] Grand Prix 2026</span>
+        <span class="badge" style="background:transparent;border:0.5px solid var(--red);color:var(--red);">Sprint Weekend</span>
+        <span>16 min read</span>
+        <span>Wednesday, [Date]</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="article-layout">
+
+      <div class="article-body">
+
+        <div class="section-divider"><span>Art & Fashion</span></div>
+
+        <h2>The Wynwood Walls and What They Refuse to Forget</h2>
+
+        <p>There is a particular kind of energy that lives in Wynwood. It is not the polished confidence of South Beach, nor the quiet money of Coral Gables. It is something rawer — the energy of walls that were empty until artists decided they shouldn't be, and the complicated question of what happens to a neighbourhood once beauty arrives uninvited.</p>
+
+        <p>The Wynwood Arts District was, for most of the twentieth century, a Puerto Rican neighbourhood called Little San Juan — slowly hollowed out by factory closures and neglect. Then, in 2009, developer Tony Goldman began commissioning murals on the abandoned warehouse walls. He called it an open-air museum. What followed was one of the most photographed urban transformations in contemporary art history, and one of the more contested ones. The murals attracted galleries, which attracted restaurants, which attracted real estate money, which changed the character of the neighbourhood so completely that most of the original community could no longer afford to live there. The art was real. The displacement was also real. Beauty and harm rarely announce which of them arrived first.</p>
+
+        <blockquote>
+          <p>"The streets are the gallery that doesn't ask for your credentials."</p>
+          <cite>— Shepard Fairey, Wynwood Walls, 2011</cite>
+        </blockquote>
+
+        <p>What makes Wynwood relevant to a conversation about fashion is not the murals themselves but what they represent: a particular Miami grammar — loud, confrontational, layered, technically brilliant — that has been absorbed into the visual language of designers who have spent time here. Fashion has always fed on street art when it needed permission to be bolder. The question is whether it ever remembers to say thank you.</p>
+
+        <div class="img-block"><span>Image — Wynwood Walls, Miami</span></div>
+        <p class="img-caption">The Wynwood Walls. Over sixty artists have contributed since 2009. What began as empty warehouses became one of the most visited sites in Florida.</p>
+
+        <h3>Art Basel and the December City</h3>
+
+        <p>Every December, Miami becomes the centre of the contemporary art world in a way that no other city manages for a week. Art Basel Miami Beach — the American edition of the Swiss fair, launched in 2002 — draws eighty thousand visitors, two hundred and fifty galleries from forty-five countries, and a specific quality of concentrated attention that the city doesn't quite have at any other time of year. In that week, Miami stops being the backdrop and becomes the subject. The light, the heat, the proximity to the water, the way everything feels slightly overexposed — all of it becomes content.</p>
+
+        <p>Fashion has understood this for longer than the fashion industry usually admits. The connection between Art Basel Miami and what arrives in collections six months later is real, if rarely credited. The flat geometry of South Beach's Art Deco district — horizontal lines, pastel surfaces, the play of shadow on flat façades — appears in garments and campaigns with a frequency that goes beyond coincidence. Miami's visual language is one of the most borrowed-from in contemporary fashion, and one of the least acknowledged sources.</p>
+
+        <h3>The Designers</h3>
+
+        <p>To understand Miami fashion is to understand the city's relationship with the body as both celebration and statement. The Cuban exile community that arrived in waves after 1959 brought with it a sensibility that European fashion houses had never quite codified — theatrical, warm, unapologetically sensory, and deeply aware that clothes are always political when you have had to leave everything else behind.</p>
+
+        <p>Simon Porte Jacquemus has never lived in Miami, but Miami has clearly lived in him. His Spring 2024 collection — staged in a setting that deliberately echoed the flat, sun-bleached geometry of South Beach — was his most explicit statement yet about heat as a design philosophy. The way clothing behaves differently when the light is merciless. The way a body moves when the air itself has weight. Jacquemus makes clothes that only fully make sense outdoors, in strong sun, in motion. They are Miami clothes without being Miami clothes.</p>
+
+        <p>Carolina Herrera is the more direct line. Venezuelan-American, shaped by the Latin American tropics, her entire colour philosophy — the fuchsias, the corals, the golds that look excessive on a runway and absolutely correct in the Miami sun — is rooted in a chromatic understanding that Northern European fashion has always struggled to reach. Her clothes know something about heat. They were designed by someone for whom heat was never the exception.</p>
+
+        <p>And then there is Johanna Ortiz, the Colombian designer whose work has become the dominant aesthetic language of the Latin American luxury market and whose relationship to Miami — through the city's Cuban-Colombian-Venezuelan-Brazilian creative community — is deep and underreported. Her silhouettes are voluminous where Miami fashion is usually body-conscious, dramatic where it is usually slick. She is making the argument, quietly and persistently, that the most interesting fashion coming out of this part of the world does not look like anything from New York or Paris. It looks like this.</p>
+
+        <div class="section-divider"><span>The Circuit</span></div>
+
+        <h2>Hard Rock: The Track That Doesn't Apologize for What It Is</h2>
+
+        <p>The Miami International Autodrome sits in the car park of the Hard Rock Stadium — which is already a sentence that tells you something about the American approach to spectacle. The stadium hosts the Miami Dolphins NFL franchise. For one weekend a year, it also hosts Formula 1. The two activities share nothing except the geography, and the circuit was designed around the constraints of that geography with a pragmatism that is either admirable or concerning depending on your view of artificial racing venues.</p>
+
+        <p>And yet: the track works. Not in spite of its compromises but somehow because of them. The nineteen corners create a rhythm that rewards commitment. The three DRS zones generate genuine overtaking opportunities rather than the push-to-pass theatre that some circuits produce. The simulated marina in the infield — fake yachts anchored in a pool of blue-dyed water, surrounded by palm trees — is the most sincere piece of American absurdism in international motorsport, and it is absolutely fine. The track doesn't ask you to pretend it's Monaco. It asks you to engage with what it actually is: a fast, punishing, occasionally chaotic street circuit hybrid built in a car park in Florida, surrounded by fake boats.</p>
+
+        <blockquote>
+          <p>"You have to commit early in Miami. If you're still deciding through Turn 11, you've already lost it."</p>
+          <cite>— Carlos Sainz, 2023 Miami GP press conference</cite>
+        </blockquote>
+
+        <h3>Race history</h3>
+
+        <p>Miami joined the calendar in 2022. In its first three editions, the race produced one storyline so consistent it became a joke and then became a fact: Max Verstappen won. The 2022 race was the more interesting one — he started ninth after a qualifying incident and carved through the field in a manner that felt more like a demonstration than a race. The 2023 edition was cleaner and perhaps less interesting for it. Verstappen from pole, Verstappen to the flag.</p>
+
+        <p>The 2024 edition was different. Lando Norris, driving for McLaren, led from pole position and held on through a safety car period that put the strategy in question. It was his first Formula 1 victory. The team's first Miami win. The moment in which McLaren became something more than the impressive midfield team they had been during the Red Bull dominance years. Miami gave them that, and the memory sits in the circuit's short history with real weight.</p>
+
+        <h3>2026 strategy considerations — and the Sprint</h3>
+
+        <p>Miami 2026 is a Sprint Weekend — which means the usual rhythm of the race weekend is compressed and transformed. Practice 1 runs Thursday evening, followed immediately by Sprint Qualifying. Friday is Sprint day (a 19-lap dash that awards championship points to the top eight) and then full Qualifying for Sunday's Grand Prix. This format has specific implications: teams arrive with less data than usual, less time to tune the car, and the strategic decisions that would normally be spread across Thursday and Friday practice are made on almost no information.</p>
+
+        <p>The 2026 regulations have produced cars that are fundamentally different from anything the teams have raced before — smaller, lighter, with a fully active aerodynamic system that adapts between straight-line and cornering demands. The early races of this season have confirmed that the performance hierarchy is genuinely unsettled. Kimi Antonelli won in the opening rounds for Mercedes, the first sign that the new regulations have reshuffled the order significantly.</p>
+
+        <p>The teams to watch in Miami: McLaren, who understand this circuit better than anyone after Norris's 2024 win and Piastri's 2025 victory — two consecutive Miami wins give them a strategic data set no other team has. Ferrari, now with Lewis Hamilton alongside Leclerc, for whom this is a first Miami race in red. The Hamilton factor at Miami is genuinely unpredictable — he has never won here, and he is very aware of that. And the two newcomers to the grid this season, Cadillac and Audi, who make 2026 the largest field in recent F1 history at twelve constructors and twenty-four drivers. Miami, with its overtaking opportunities, is a better circuit for the new teams than most.</p>
+
+        <p>The Sprint on Friday is also worth watching for a specific reason: it is often where teams reveal their actual race pace, unfiltered by the strategic concealment that full qualifying encourages. Watch the Sprint and you will know more about Sunday than the grid positions suggest.</p>
+
+        <div class="section-divider"><span>City & History</span></div>
+
+        <h2>Julia Tuttle's City: The Miami Nobody Races Through</h2>
+
+        <p>Formula 1 would do well to remember, as it sets up its paddock and its fake yachts and its hospitality structures, that the city it is visiting was founded by a woman. Julia Tuttle was a businesswoman and landowner who, in the 1890s, owned significant property along the Miami River and was convinced that the area had the potential to become something. Henry Flagler, the railroad magnate, was not convinced — his Florida East Coast Railway stopped at Palm Beach, which he considered sufficient. Tuttle persisted.</p>
+
+        <p>The story that gets told — the one that is probably true, and is certainly beautiful — is that during the devastating freeze of 1894–95, which destroyed citrus crops across Florida, Tuttle sent Flagler fresh orange blossoms from Miami, demonstrating that her land had survived untouched. Flagler extended his railroad south. Miami was incorporated in 1896. It is, by some accounts, the only major American city to have been founded by a woman, and it happened because she understood the value of physical evidence over argument. It's an interesting founding story for a city that has spent its entire existence trying to prove something.</p>
+
+        <h3>The Art Deco district</h3>
+
+        <p>South Beach's Art Deco district — the largest collection of Art Deco architecture in the world — was built during the 1930s, when Miami Beach was developing as a tourist destination for Northern Americans seeking warmth. The architects who designed it were largely unknown at the time: L. Murray Dixon, Henry Hohauser, Albert Anis, building quickly and cheaply in the style that was modern, optimistic, and American.</p>
+
+        <p>The colours are the most misunderstood thing about them. The turquoise, the coral, the pale yellow, the salmon pink — these were not chosen primarily for aesthetic reasons. They were chosen because certain pigments absorb heat rather than reflecting it, keeping the stucco buildings cooler in the Miami sun. The buildings are beautiful because they were practical. Form followed function and became something that people now travel across the world to photograph. There is something worth noting in that: a lot of what we read as deliberate design began as problem-solving. The aesthetics arrived second.</p>
+
+        <h3>Little Havana</h3>
+
+        <p>Southwest Eighth Street — Calle Ocho — is one of the most important corridors in the history of American cultural migration, and most visitors to Miami have never walked it. The Formula 1 paddock is approximately fourteen miles northeast of the domino tables outside Máximo Gómez Park. Those fourteen miles represent one of the sharpest cultural discontinuities in American sport.</p>
+
+        <p>The Cuban exiles who arrived after 1959 built something remarkable in what was then an underdeveloped part of the city. They built a parallel Miami — with its own newspapers, its own music infrastructure, its own radio stations, its own art galleries, its own fashion sensibility. The Versailles Restaurant on Calle Ocho is not simply a restaurant. It is a place where political exile became community, where the language of loss was slowly translated into the language of permanence. People have been arguing about Cuban politics at those tables for over fifty years. The food is good but that is not why people keep going.</p>
+
+        <p>The colours that define Miami — the turquoise, the salmon pink, the deep terracotta — appear in the city's buildings not because architects were inventive but because workers brought those colours with them from memory. Colour as cultural memory. The chromatic record of a Caribbean that was left behind and never quite forgotten, expressed in paint on stucco in a city that was supposed to be something new.</p>
+
+        <p>This is the city Formula 1 is visiting. Not just the Hard Rock Stadium. Not just the Wynwood galleries and the Art Basel opening nights and the Design District boutiques. All of that, yes — and also Calle Ocho. Also the domino tables. Also Julia Tuttle's orange blossoms. The race lasts two hours. The city has been here for a hundred and thirty years, and it has things to say.</p>
+
+      </div>
+
+      <div class="article-sidebar">
+
+        <div class="sidebar-block">
+          <span class="sidebar-label">Circuit Data</span>
+          <div class="track-stat"><span class="stat-label">Round</span><span class="stat-value">4 of 24</span></div>
+          <div class="track-stat"><span class="stat-label">Race</span><span class="stat-value">May 3, 2026</span></div>
+          <div class="track-stat"><span class="stat-label">Format</span><span class="stat-value">Sprint Weekend</span></div>
+          <div class="track-stat"><span class="stat-label">Laps</span><span class="stat-value">57</span></div>
+          <div class="track-stat"><span class="stat-label">Length</span><span class="stat-value">5.412 km</span></div>
+          <div class="track-stat"><span class="stat-label">Distance</span><span class="stat-value">308.326 km</span></div>
+          <div class="track-stat"><span class="stat-label">Corners</span><span class="stat-value">19</span></div>
+          <div class="track-stat"><span class="stat-label">DRS Zones</span><span class="stat-value">3</span></div>
+          <div class="track-stat"><span class="stat-label">Lap record</span><span class="stat-value">1:29.708</span></div>
+          <div class="track-stat"><span class="stat-label">Record by</span><span class="stat-value">Verstappen '23</span></div>
+          <div class="track-stat"><span class="stat-label">Last winner</span><span class="stat-value">Piastri, 2025</span></div>
+        </div>
+
+        <div class="sidebar-block">
+          <span class="sidebar-label">Colour Palette</span>
+          <div style="display:flex;gap:8px;margin-bottom:12px;">
+            <div style="width:32px;height:32px;border-radius:50%;background:#E8B89A;"></div>
+            <div style="width:32px;height:32px;border-radius:50%;background:#48B5C4;"></div>
+            <div style="width:32px;height:32px;border-radius:50%;background:#F2D4A8;"></div>
+            <div style="width:32px;height:32px;border-radius:50%;background:#C85A3C;"></div>
+          </div>
+          <p>Miami Deco — coral, turquoise, warm sand, terracotta. The chromatic memory of a Caribbean that was never quite left behind.</p>
+        </div>
+
+        <div class="sidebar-block">
+          <span class="sidebar-label">Fashion focus</span>
+          <h4>Johanna Ortiz</h4>
+          <p>The Colombian designer whose voluminous, dramatically printed work is the most interesting counterargument to everything Miami fashion usually looks like. Watch her Miami-adjacent collections for what the city could be, if it dressed differently.</p>
+        </div>
+
+        <div class="sidebar-block">
+          <span class="sidebar-label">Designer to know</span>
+          <h4>Jacquemus in Miami</h4>
+          <p>Simon Porte Jacquemus has said that heat is the only climate he designs for. His Spring 2024 collection was staged against bleached geometry and hard shadow. Miami is the destination his work has always been pointed toward.</p>
+        </div>
+
+        <div class="sidebar-block">
+          <span class="sidebar-label">Weekend Schedule</span>
+          <div class="track-stat"><span class="stat-label">Thu May 1</span><span class="stat-value">FP1 + SQ</span></div>
+          <div class="track-stat"><span class="stat-label">Fri May 2</span><span class="stat-value">Sprint + Quali</span></div>
+          <div class="track-stat"><span class="stat-label">Sun May 3</span><span class="stat-value">Race 20:00</span></div>
+        </div>
+
+        <div class="sidebar-block">
+          <span class="sidebar-label">Subscribe</span>
+          <p style="margin-bottom:12px;">The Espresso Dispatch every Sunday.</p>
+          <div class="sub-form-block">
+            <input type="email" class="sub-input" placeholder="your@email.com" />
+            <a href="https://circuitcouture.substack.com" target="_blank" class="sub-btn" onclick="handleSub(this);return false;">Subscribe →</a>
+            <p class="sub-note">Free · Sundays only · No spam</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="next-article">
+      <div>
+        <span class="label">This Sunday</span>
+        <h3>The Espresso Dispatch — Issue No. 001</h3>
+      </div>
+      <a class="next-link" href="espresso-miami-2026.html">Read the dispatch</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <footer>
+      <div class="logo serif">Circuit <span style="color:var(--gold);">Couture</span></div>
+      <p>Fashion × Art × Formula 1</p>
+      <nav>
+        <a href="#">Instagram</a>
+        <a href="#">Pinterest</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </footer>
+  </div>
+
+  <div id="nl-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:999;align-items:center;justify-content:center;">
+    <div style="background:#111110;border:0.5px solid #1E1D1A;padding:40px;max-width:420px;width:90%;position:relative;border-radius:2px;">
+      <button onclick="closeNewsletter()" style="position:absolute;top:16px;right:20px;background:none;border:none;color:#7A7570;font-size:20px;cursor:pointer;line-height:1;">×</button>
+      <div style="font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:#B8975A;margin-bottom:16px;">Every Sunday</div>
+      <div style="font-family:'Playfair Display',Georgia,serif;font-size:28px;font-weight:400;margin-bottom:8px;">The Espresso<br>Dispatch</div>
+      <p style="font-size:13px;color:#7A7570;line-height:1.8;margin-bottom:24px;">Coffee, playlists, women in motorsport, Pinterest picks. Free, always.</p>
+      <div class="sub-form-block">
+        <input type="email" class="sub-input" placeholder="your@email.com" />
+        <a href="https://circuitcouture.substack.com" target="_blank" class="sub-btn" onclick="handleSub(this);return false;">Subscribe →</a>
+        <p class="sub-note">Free · Sundays only · No spam</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function handleSub(link) {
+      const input = link.previousElementSibling;
+      const email = input.value.trim();
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        input.style.borderColor = '#C8293B';
+        input.placeholder = 'Please enter a valid email';
+        setTimeout(() => { input.style.borderColor = ''; input.placeholder = 'your@email.com'; }, 2000);
+        return;
+      }
+      window.open('https://circuitcouture.substack.com?email=' + encodeURIComponent(email), '_blank');
+    }
+    function openNewsletter() { document.getElementById('nl-overlay').style.display='flex'; document.body.style.overflow='hidden'; }
+    function closeNewsletter() { document.getElementById('nl-overlay').style.display='none'; document.body.style.overflow=''; }
+    document.getElementById('nl-overlay').addEventListener('click', function(e) { if(e.target===this) closeNewsletter(); });
+    document.addEventListener('keydown', function(e) { if(e.key==='Escape') closeNewsletter(); });
+  </script>
+</body>
+</html>
