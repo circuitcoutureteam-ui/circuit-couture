@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Post-Race Dispatch — Miami 2026 — Circuit Couture</title>
-  <meta name="description" content="The Post-Race Dispatch drops every Monday after the flag. Miami races May 3, 2026.">
+  <title>Post-Race Dispatch — Miami Grand Prix 2026 — Circuit Couture</title>
+  <meta name="description" content="Antonelli wins. Saint Laurent dominates the paddock. The lap that changed everything. Post-Race Dispatch, Round 4, Miami 2026.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -16,6 +16,8 @@
     .serif { font-family: 'Playfair Display', Georgia, serif; }
     a { color: inherit; text-decoration: none; }
     .container { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+
+    /* NAV */
     nav { border-bottom: 0.5px solid var(--border); position: sticky; top: 0; background: var(--ink); z-index: 100; }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; }
     .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream); }
@@ -26,103 +28,78 @@
     .nav-links .nl-btn { color: var(--gold); border: 0.5px solid var(--gold); padding: 5px 14px; border-radius: 2px; transition: background 0.2s, color 0.2s; }
     .nav-links .nl-btn:hover { background: var(--gold); color: var(--ink); }
 
-    /* COMING SOON HERO */
-    .cs-hero {
-      min-height: 70vh;
-      display: flex; align-items: center;
-      border-bottom: 0.5px solid var(--border);
-    }
-    .cs-inner { max-width: 680px; }
-    .eyebrow {
-      font-size: 10px; letter-spacing: 0.24em;
-      text-transform: uppercase; color: var(--gold);
-      display: flex; align-items: center;
-      gap: 12px; margin-bottom: 28px;
-    }
-    .eyebrow::before {
-      content: ''; display: inline-block;
-      width: 28px; height: 0.5px; background: var(--gold);
-    }
-    .cs-inner h1 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 56px; line-height: 1.08;
-      font-weight: 700; margin-bottom: 20px;
-    }
-    .cs-inner h1 em { font-style: italic; color: var(--gold); }
-    .cs-inner p {
-      font-size: 17px; color: var(--muted);
-      line-height: 1.85; max-width: 520px;
-      margin-bottom: 40px;
-      font-family: 'Playfair Display', Georgia, serif;
-      font-style: italic;
-    }
+    /* HEADER */
+    .pr-header { padding: 72px 0 56px; border-bottom: 0.5px solid var(--border); max-width: 760px; }
+    .breadcrumb { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 28px; display: flex; align-items: center; gap: 10px; }
+    .breadcrumb a { color: var(--gold); }
+    .breadcrumb .sep { color: var(--border); }
+    .eyebrow { font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+    .eyebrow::before { content: ''; display: inline-block; width: 28px; height: 0.5px; background: var(--gold); }
+    .pr-header h1 { font-family: 'Playfair Display', Georgia, serif; font-size: 52px; line-height: 1.08; font-weight: 700; margin-bottom: 20px; }
+    .pr-header h1 em { font-style: italic; color: var(--gold); }
+    .pr-deck { font-size: 17px; color: var(--muted); line-height: 1.8; margin-bottom: 32px; font-weight: 300; font-family: 'Playfair Display', Georgia, serif; font-style: italic; }
+    .pr-meta { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); padding-top: 24px; border-top: 0.5px solid var(--border); }
+    .badge { background: var(--red); color: #fff; padding: 5px 14px; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 2px; font-weight: 400; }
+    .badge.gold { background: transparent; border: 0.5px solid var(--gold); color: var(--gold); }
 
-    /* COUNTDOWN STRIP */
-    .countdown-strip {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      border: 0.5px solid var(--border);
-      margin-bottom: 40px;
-    }
-    .countdown-cell {
-      padding: 28px 20px; text-align: center;
-      border-right: 0.5px solid var(--border);
-    }
-    .countdown-cell:last-child { border-right: none; }
-    .countdown-num {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 48px; font-style: italic;
-      color: var(--gold); display: block;
-      line-height: 1; margin-bottom: 8px;
-    }
-    .countdown-label {
-      font-size: 9px; letter-spacing: 0.22em;
-      text-transform: uppercase; color: var(--muted);
-    }
+    /* PODIUM STRIP */
+    .podium-strip { display: grid; grid-template-columns: repeat(3, 1fr); border: 0.5px solid var(--border); margin: 40px 0; }
+    .podium-cell { padding: 24px 20px; border-right: 0.5px solid var(--border); }
+    .podium-cell:last-child { border-right: none; }
+    .podium-pos { font-family: 'Playfair Display', Georgia, serif; font-size: 11px; font-style: italic; color: var(--muted); display: block; margin-bottom: 6px; }
+    .podium-driver { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 400; color: var(--cream); }
+    .podium-team { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+    .podium-time { font-size: 12px; color: var(--gold); margin-top: 6px; font-style: italic; font-family: 'Playfair Display', Georgia, serif; }
 
-    /* WHAT TO EXPECT */
-    .expect-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      border: 0.5px solid var(--border);
-      margin-bottom: 40px;
-    }
-    .expect-cell {
-      padding: 28px 24px;
-      border-right: 0.5px solid var(--border);
-      border-bottom: 0.5px solid var(--border);
-    }
-    .expect-cell:nth-child(2n) { border-right: none; }
-    .expect-cell:nth-last-child(-n+2) { border-bottom: none; }
-    .expect-label {
-      font-size: 9px; letter-spacing: 0.22em;
-      text-transform: uppercase; color: var(--gold);
-      display: block; margin-bottom: 10px;
-    }
-    .expect-cell h3 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 16px; font-weight: 400;
-      margin-bottom: 6px;
-    }
-    .expect-cell p {
-      font-size: 12px; color: var(--muted); line-height: 1.7;
-    }
+    /* DISPATCH GRID */
+    .dispatch-grid { display: grid; grid-template-columns: 1fr 1fr; border: 0.5px solid var(--border); margin-bottom: 40px; }
+    .dispatch-cell { padding: 36px 32px; border-right: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); }
+    .dispatch-cell:nth-child(2n) { border-right: none; }
+    .dispatch-cell:nth-last-child(-n+2) { border-bottom: none; }
+    .cell-label { font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 16px; }
+    .dispatch-cell h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 24px; line-height: 1.3; font-weight: 400; margin-bottom: 14px; }
+    .dispatch-cell p { font-size: 14px; color: var(--muted); line-height: 1.8; }
+    .dispatch-cell p + p { margin-top: 12px; }
+
+    /* RACE BODY */
+    .race-body { padding: 48px 0; border-bottom: 0.5px solid var(--border); }
+    .race-body h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 400; line-height: 1.25; margin: 40px 0 16px; color: var(--cream); }
+    .race-body h3 { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin: 32px 0 12px; }
+    .race-body p { font-size: 16px; line-height: 1.85; color: rgba(242,237,227,0.85); margin-bottom: 20px; font-weight: 300; }
+    .race-body blockquote { border-left: 2px solid var(--gold); padding: 4px 0 4px 28px; margin: 32px 0; }
+    .race-body blockquote p { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-style: italic; color: var(--cream); line-height: 1.55; margin: 0; }
+    .race-body blockquote cite { display: block; margin-top: 10px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-style: normal; }
+
+    /* SECTION DIVIDER */
+    .section-divider { display: flex; align-items: center; gap: 16px; margin: 40px 0; }
+    .section-divider span { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); flex-shrink: 0; }
+    .section-divider::before, .section-divider::after { content: ''; flex: 1; height: 0.5px; background: var(--border); }
+
+    /* FASHION ICON */
+    .fashion-feature { border-left: 2px solid var(--gold); padding: 4px 0 4px 32px; margin: 28px 0; }
+    .fashion-feature h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 400; margin-bottom: 4px; }
+    .fashion-feature .role { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: block; }
+    .fashion-feature p { font-size: 14px; color: var(--muted); line-height: 1.8; }
+    .fashion-feature p + p { margin-top: 12px; }
+
+    /* PALETTE */
+    .palette-section { border: 0.5px solid var(--border); padding: 36px 32px; margin-bottom: 40px; }
+    .palette-row { display: flex; gap: 0; height: 72px; border-radius: 2px; overflow: hidden; margin: 20px 0 12px; }
+    .palette-swatch { flex: 1; }
+    .swatch-labels { display: flex; }
+    .swatch-label { flex: 1; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding-top: 8px; text-align: center; }
+
+    /* SONG */
+    .song-block { background: rgba(184,151,90,0.04); border: 0.5px solid var(--border); padding: 36px 32px; margin-bottom: 40px; display: flex; align-items: center; gap: 32px; }
+    .song-num { font-family: 'Playfair Display', Georgia, serif; font-size: 48px; font-style: italic; color: var(--gold); flex-shrink: 0; line-height: 1; }
+    .song-info h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 24px; font-weight: 400; margin-bottom: 4px; }
+    .song-info .artist { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+    .song-info p { font-size: 13px; color: var(--muted); line-height: 1.75; }
 
     /* SUBSCRIBE */
-    .sub-section {
-      padding: 48px 0;
-      border-top: 0.5px solid var(--border);
-      display: flex; align-items: center;
-      justify-content: space-between; gap: 48px;
-    }
-    .sub-left h2 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 28px; font-weight: 400; margin-bottom: 8px;
-    }
-    .sub-left p {
-      font-size: 13px; color: var(--muted); line-height: 1.75;
-    }
+    .sub-section { padding: 48px 0; border-top: 0.5px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 48px; }
+    .sub-left h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; font-weight: 400; margin-bottom: 8px; }
+    .sub-left p { font-size: 13px; color: var(--muted); line-height: 1.75; }
     .sub-form-block { display: flex; flex-direction: column; gap: 10px; min-width: 280px; }
     .sub-input { padding: 12px 16px; background: rgba(255,255,255,0.05); border: 0.5px solid #7A7570; color: var(--cream); font-family: 'Jost', sans-serif; font-size: 13px; border-radius: 2px; outline: none; transition: border-color 0.2s; width: 100%; }
     .sub-input::placeholder { color: var(--muted); }
@@ -131,16 +108,15 @@
     .sub-btn:hover { background: #caa96a; }
     .sub-note { font-size: 10px; color: var(--muted); text-align: center; }
 
-    /* BACK LINK */
-    .back-link {
-      display: inline-flex; align-items: center;
-      gap: 8px; font-size: 10px; letter-spacing: 0.16em;
-      text-transform: uppercase; color: var(--muted);
-      margin-bottom: 48px; transition: color 0.2s;
-    }
-    .back-link:hover { color: var(--gold); }
-    .back-link::before { content: '←'; font-size: 13px; }
+    /* NEXT */
+    .next-article { border-top: 0.5px solid var(--border); padding: 40px 0; display: flex; align-items: center; justify-content: space-between; }
+    .next-article .label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; display: block; }
+    .next-article h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 400; }
+    .next-link { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); display: inline-flex; align-items: center; gap: 8px; transition: gap 0.2s; }
+    .next-link:hover { gap: 14px; }
+    .next-link::after { content: '→'; font-size: 13px; }
 
+    /* FOOTER */
     footer { padding: 32px 0; display: flex; justify-content: space-between; align-items: center; border-top: 0.5px solid var(--border); }
     footer .logo { font-size: 16px; }
     footer p { font-size: 11px; color: var(--muted); letter-spacing: 0.08em; }
@@ -168,70 +144,194 @@
   </nav>
 
   <div class="container">
-    <div class="cs-hero">
-      <div class="cs-inner">
-        <a href="./index.html" class="back-link">Back to home</a>
-        <div class="eyebrow">Post-Race Dispatch — Round 4</div>
-        <h1>The Race Hasn't<br><em>Happened Yet</em></h1>
-        <p>The Post-Race Dispatch drops every Monday after the chequered flag. Miami races on Sunday May 3rd — the first edition lands Monday May 4th at 8pm.</p>
-
-        <div class="countdown-strip">
-          <div class="countdown-cell">
-            <span class="countdown-num" id="days">—</span>
-            <span class="countdown-label">Days</span>
-          </div>
-          <div class="countdown-cell">
-            <span class="countdown-num" id="hours">—</span>
-            <span class="countdown-label">Hours</span>
-          </div>
-          <div class="countdown-cell">
-            <span class="countdown-num" id="minutes">—</span>
-            <span class="countdown-label">Minutes</span>
-          </div>
-          <div class="countdown-cell">
-            <span class="countdown-num" id="seconds">—</span>
-            <span class="countdown-label">Seconds</span>
-          </div>
-        </div>
-
-        <div class="expect-grid">
-          <div class="expect-cell">
-            <span class="expect-label">Race Summary</span>
-            <h3>What Actually Happened</h3>
-            <p>Not just the result — the moment that defined the weekend. The decision that changed everything. The story beneath the standings.</p>
-          </div>
-          <div class="expect-cell">
-            <span class="expect-label">Fashion Icon</span>
-            <h3>Who Wore the Weekend</h3>
-            <p>The paddock always delivers. One person, one look, one reason it mattered beyond the clothes.</p>
-          </div>
-          <div class="expect-cell">
-            <span class="expect-label">Quote of the Week</span>
-            <h3>The Line That Stayed</h3>
-            <p>One sentence from the weekend — from the podium, the pit wall, the press conference — that said something true.</p>
-          </div>
-          <div class="expect-cell">
-            <span class="expect-label">Colour Palette</span>
-            <h3>The Atmosphere in Colour</h3>
-            <p>Every race has a chromatic memory. Miami's will be drawn from the light, the heat, and whatever the weekend decides to be.</p>
-          </div>
-        </div>
-
+    <div class="pr-header">
+      <div class="breadcrumb">
+        <a href="./index.html">Home</a>
+        <span class="sep">/</span>
+        <a href="./archive.html">Post-Race Dispatch</a>
+        <span class="sep">/</span>
+        Round 4 — Miami
+      </div>
+      <div class="eyebrow">Post-Race Dispatch — Round 4</div>
+      <h1>Antonelli. Saint Laurent.<br><em>The Lap That Changed Everything.</em></h1>
+      <p class="pr-deck">Kimi Antonelli wins his third consecutive race. Charles Leclerc spins out of a podium. And Saint Laurent quietly wins the entire weekend without entering the championship.</p>
+      <div class="pr-meta">
+        <span class="badge">Monday Edition</span>
+        <span class="badge gold">Miami Grand Prix 2026</span>
+        <span>Monday, May 4, 2026</span>
+        <span>8 min read</span>
       </div>
     </div>
   </div>
 
   <div class="container">
+
+    <!-- PODIUM -->
+    <div class="podium-strip">
+      <div class="podium-cell">
+        <span class="podium-pos">1st</span>
+        <div class="podium-driver">Antonelli</div>
+        <div class="podium-team">Mercedes</div>
+        <div class="podium-time">1:33:19.273</div>
+      </div>
+      <div class="podium-cell">
+        <span class="podium-pos">2nd</span>
+        <div class="podium-driver">Norris</div>
+        <div class="podium-team">McLaren</div>
+        <div class="podium-time">+3.264s</div>
+      </div>
+      <div class="podium-cell">
+        <span class="podium-pos">3rd</span>
+        <div class="podium-driver">Piastri</div>
+        <div class="podium-team">McLaren</div>
+        <div class="podium-time">+27.092s</div>
+      </div>
+    </div>
+
+    <!-- DISPATCH CELLS -->
+    <div class="dispatch-grid">
+      <div class="dispatch-cell">
+        <span class="cell-label">Fashion Icon</span>
+        <h2>Alexandra Leclerc</h2>
+        <p>Saint Laurent twice in one weekend — a vintage Tom Ford archive piece at Friday's FRAME dinner, then a full S/S 26 look on race day. The paddock's most considered dresser, in the season's most talked-about brand.</p>
+      </div>
+      <div class="dispatch-cell">
+        <span class="cell-label">Quote of the Week</span>
+        <div style="font-family:'Playfair Display',Georgia,serif;font-size:22px;font-style:italic;line-height:1.45;color:var(--cream);margin-bottom:12px;">"F***'s sake, how did we not win this?"</div>
+        <p style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);">— Lando Norris, post-race</p>
+      </div>
+      <div class="dispatch-cell">
+        <span class="cell-label">Song of the Week</span>
+        <div style="font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:400;margin-bottom:4px;">Golden</div>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:10px;">Harry Styles</div>
+        <p>Because Miami always looks like this song feels. Because Antonelli winning at twenty years old, with that composure, deserves something that sounds like the beginning of something.</p>
+      </div>
+      <div class="dispatch-cell">
+        <span class="cell-label">Colour Palette</span>
+        <div style="font-family:'Playfair Display',Georgia,serif;font-size:20px;font-style:italic;margin-bottom:14px;">Paddock at Golden Hour</div>
+        <div style="display:flex;gap:8px;">
+          <div style="width:28px;height:28px;border-radius:50%;background:#FF6B35;"></div>
+          <div style="width:28px;height:28px;border-radius:50%;background:#F5C5A3;"></div>
+          <div style="width:28px;height:28px;border-radius:50%;background:#722F37;"></div>
+          <div style="width:28px;height:28px;border-radius:50%;background:#FF8000;"></div>
+          <div style="width:28px;height:28px;border-radius:50%;background:#C0C0C0;"></div>
+        </div>
+        <p style="margin-top:10px;font-size:11px;">Neon orange · Peachy satin · Burgundy · McLaren papaya · Mercedes silver</p>
+      </div>
+    </div>
+
+    <!-- RACE BODY -->
+    <div class="race-body">
+
+      <div class="section-divider"><span>The Race</span></div>
+
+      <h2>Three Wins in a Row. The Kid Is Serious.</h2>
+
+      <p>Kimi Antonelli has claimed his third consecutive victory of the season at the Miami Grand Prix, holding off McLaren's Lando Norris in an eventful race that had a little bit of everything — including a 360-degree spin from Verstappen on the opening lap, a safety car, a Charles Leclerc implosion, and a final two laps that the grandstands will remember for a long time.</p>
+
+      <p>A dramatic start ensued when polesitter Antonelli faced a three-way scrap alongside Verstappen and Leclerc before both the Mercedes and Red Bull cars locked up into the first corner. Verstappen made contact with Leclerc, sending the Dutchman into a spin that dropped him down the order. Separate crashes for Hadjar and Gasly brought out the safety car in the opening laps.</p>
+
+      <p>The lead changed hands numerous times — Antonelli, Leclerc, Norris, Piastri, Verstappen all enjoyed stints at the front. But the pivotal moment came in the pit stop phase. Even if it required a degree of assistance from McLaren's execution errors, Antonelli still had to pounce and pass Norris — and the pass, when it came, was incisive. A subsequent one on Verstappen broke any real tow back to Norris and effectively sealed the race.</p>
+
+      <blockquote>
+        <p>"F***'s sake, how did we not win this?"</p>
+        <cite>— Lando Norris, post-race</cite>
+      </blockquote>
+
+      <p>Norris crossed the line 3.264 seconds back in second. There is a legitimate case that McLaren should have won here for a third consecutive year. A little more precision in execution — team principal Andrea Stella used the words "optimisation" and "adaptation" multiple times in his post-race comments — might have made the difference. The Mercedes was possibly still the faster car, but Antonelli was certainly the faster driver on the day.</p>
+
+      <h3>The Final Laps</h3>
+
+      <p>The closing stages delivered everything Miami historically promises. Piastri snatched third from Leclerc during a chaotic final two laps. Leclerc subsequently spun — taking full accountability afterwards — and was overtaken by Russell for fourth. A 20-second post-race penalty for repeatedly cutting corners while dragging his damaged Ferrari to the finish dropped him to eighth. Without an early strategic call that Leclerc himself questioned, perhaps none of it happens. It is, as one analyst noted, a very Ferrari series of events to have occurred.</p>
+
+      <p>Verstappen received a five-second penalty for crossing the pit exit line — it didn't change his finishing position. Fifth. From a 360-degree spin on lap one. The best and worst of Verstappen, on full display across ninety minutes.</p>
+
+      <div class="section-divider"><span>Fashion Icon</span></div>
+
+      <h2>Saint Laurent Won the Miami Grand Prix</h2>
+
+      <p>Kimi Antonelli won the race. Saint Laurent won the weekend. The French house found itself everywhere in and around the Miami International Autodrome — not because of any activation or buzzy event, but simply because the most stylish people in the city chose to wear it.</p>
+
+      <div class="fashion-feature">
+        <h3>Alexandra Leclerc</h3>
+        <span class="role">Fashion Icon of the Weekend</span>
+        <p>Lewis Hamilton arrived at the track for media day in off-the-runway Saint Laurent menswear from the S/S 26 collection — a neon-orange pullover windbreaker layered over a matching silk shirt and a burgundy tie, with pleated brown trousers and black derbies. Sharp, polished, playful. His best paddock look since joining Ferrari.</p>
+        <p>But it was Alexandra Leclerc who carried the weekend. On Thursday evening, she hosted an intimate dinner at Casa Tua Miami Beach to celebrate the launch of her collaboration with FRAME — guests included Hailey Bieber, Kim Petras, and Anastasia Karanikolaou. Bieber arrived in a rare Yves Saint Laurent by Tom Ford scarf top from the F/W 2004 archives, sitting next to Leclerc who wore her own FRAME collection debut.</p>
+        <p>On race day, despite the earlier thunderstorms, Alexandra arrived at the circuit in a full look from Saint Laurent's spring 2026 collection: a sporty windbreaker, a two-tone pencil skirt, and sky-high satin slingbacks in a pale peachy pink. Satin in uncertain weather is a statement. She made it.</p>
+        <p>Three looks. One house. One weekend. The fashion icon of the Miami Grand Prix 2026 is, without question, Alexandra Leclerc.</p>
+      </div>
+
+      <div class="section-divider"><span>The Week Ahead</span></div>
+
+      <h2>What This Season Is Starting to Look Like</h2>
+
+      <p>Antonelli leads the championship with three wins from four races. He has converted his first three pole positions into victories — a record in Formula 1 history. He is twenty years old. The longer this level of performance continues, the less it looks like simply a consequence of having the best package at his disposal.</p>
+
+      <p>McLaren have step two of their upgrade package arriving in Montreal next time out, and there is a quiet confidence from within the team about what more is possible from this starting point. Ferrari need to find answers — strategic, operational, and perhaps structural. Leclerc is too good a driver to keep losing races this way.</p>
+
+      <p>Next round: Canada. Circuit Gilles Villeneuve. Montreal. The Cultural Grid Preview drops the Wednesday before the race. The Espresso Dispatch this Sunday.</p>
+
+    </div>
+
+  </div>
+
+  <!-- SONG BLOCK -->
+  <div class="container">
+    <div class="song-block">
+      <div class="song-num">♪</div>
+      <div class="song-info">
+        <h3>"Golden"</h3>
+        <div class="artist">Harry Styles</div>
+        <p>Because Miami always looks like this song feels. Because Antonelli winning at twenty years old, with that composure, in that light, deserves something that sounds like the beginning of something. And because the paddock this weekend — the colour, the Saint Laurent, the golden hour arrivals — looked exactly like a Harry Styles album cover.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PALETTE FULL -->
+  <div class="container">
+    <div class="palette-section">
+      <span class="cell-label">Colour Palette of the Week</span>
+      <div style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-style:italic;margin-bottom:6px;">Paddock at Golden Hour</div>
+      <p style="font-size:13px;color:var(--muted);max-width:560px;line-height:1.75;margin-bottom:20px;">Five colours that defined Miami 2026 — from Hamilton's media day entrance to Alexandra's race-day slingbacks to the light at Hard Rock Stadium in the final laps.</p>
+      <div class="palette-row">
+        <div class="palette-swatch" style="background:#FF6B35;"></div>
+        <div class="palette-swatch" style="background:#F5C5A3;"></div>
+        <div class="palette-swatch" style="background:#722F37;"></div>
+        <div class="palette-swatch" style="background:#FF8000;"></div>
+        <div class="palette-swatch" style="background:#C0C0C0;"></div>
+      </div>
+      <div class="swatch-labels">
+        <div class="swatch-label">Neon Orange</div>
+        <div class="swatch-label">Peachy Satin</div>
+        <div class="swatch-label">Burgundy</div>
+        <div class="swatch-label">Papaya</div>
+        <div class="swatch-label">Silver</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBSCRIBE -->
+  <div class="container">
     <div class="sub-section">
       <div class="sub-left">
-        <h2 class="serif">Get it Monday morning</h2>
-        <p>Subscribe and the Post-Race Dispatch<br>lands in your inbox before you've finished breakfast.</p>
+        <h2 class="serif">See you Sunday</h2>
+        <p>The Espresso Dispatch lands every Sunday. Coffee recipe, playlist, women in motorsport, Pinterest picks. Free, always.</p>
       </div>
       <div class="sub-form-block">
         <input type="email" class="sub-input" placeholder="your@email.com" />
         <a href="https://circuitc.substack.com" target="_blank" class="sub-btn" onclick="handleSub(this);return false;">Subscribe free →</a>
-        <p class="sub-note">Free · Mondays after a race · No spam</p>
+        <p class="sub-note">Free · Sundays only · No spam</p>
       </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="next-article">
+      <div>
+        <span class="label">Next up</span>
+        <h3>Cultural Grid Preview — Round 5, Canada</h3>
+      </div>
+      <a class="next-link" href="./archive.html">See archive</a>
     </div>
   </div>
 
@@ -247,13 +347,14 @@
     </footer>
   </div>
 
+  <!-- NEWSLETTER POPUP -->
   <div id="nl-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:999;align-items:center;justify-content:center;">
     <div style="background:#111110;border:0.5px solid #1E1D1A;padding:40px;max-width:420px;width:90%;position:relative;border-radius:2px;">
       <button onclick="closeNewsletter()" style="position:absolute;top:16px;right:20px;background:none;border:none;color:#7A7570;font-size:20px;cursor:pointer;line-height:1;">×</button>
       <div style="font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:#B8975A;margin-bottom:16px;">Every Sunday</div>
       <div style="font-family:'Playfair Display',Georgia,serif;font-size:28px;font-weight:400;margin-bottom:8px;">The Espresso<br>Dispatch</div>
       <p style="font-size:13px;color:#7A7570;line-height:1.8;margin-bottom:24px;">Coffee, playlists, women in motorsport, Pinterest picks. Free, always.</p>
-      <div class="sub-form-block">
+      <div style="display:flex;flex-direction:column;gap:10px;">
         <input type="email" class="sub-input" placeholder="your@email.com" />
         <a href="https://circuitc.substack.com" target="_blank" class="sub-btn" onclick="handleSub(this);return false;">Subscribe →</a>
         <p class="sub-note">Free · Sundays only · No spam</p>
@@ -262,26 +363,6 @@
   </div>
 
   <script>
-    // Countdown to Miami race — May 3, 2026 20:00 local time
-    const raceDate = new Date('2026-05-04T20:00:00-04:00');
-    function updateCountdown() {
-      const now = new Date();
-      const diff = raceDate - now;
-      if (diff <= 0) {
-        document.getElementById('days').textContent = '0';
-        document.getElementById('hours').textContent = '0';
-        document.getElementById('minutes').textContent = '0';
-        document.getElementById('seconds').textContent = '0';
-        return;
-      }
-      document.getElementById('days').textContent = Math.floor(diff / 86400000);
-      document.getElementById('hours').textContent = Math.floor((diff % 86400000) / 3600000);
-      document.getElementById('minutes').textContent = Math.floor((diff % 3600000) / 60000);
-      document.getElementById('seconds').textContent = Math.floor((diff % 60000) / 1000);
-    }
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-
     function handleSub(link) {
       const input = link.previousElementSibling;
       const email = input.value.trim();
@@ -298,5 +379,6 @@
     document.getElementById('nl-overlay').addEventListener('click', function(e) { if(e.target===this) closeNewsletter(); });
     document.addEventListener('keydown', function(e) { if(e.key==='Escape') closeNewsletter(); });
   </script>
+
 </body>
 </html>
